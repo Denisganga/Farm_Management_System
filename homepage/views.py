@@ -14,3 +14,18 @@ def Show_employees(request):
 
 
     return render(request, 'homepage/showemployees.html', {'employees':employees})
+
+def Add_employees(request):
+    if request.method=='POST':
+        form = EmployeesForm(request.POST)
+        if form.is_valid():
+            employees= form.save(commit=False)
+            employees.user = request.user
+
+            form.save()
+
+            return redirect('homepage:show-employees')
+        
+    else:
+        form =EmployeesForm()
+    return render(request, 'homepage/addemployees.html', {'form':form})
