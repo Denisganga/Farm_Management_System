@@ -1,3 +1,5 @@
+{%extends 'homepage/base.html'%}
+{%block content%}
 <head>
     <title>update Employee</title>
     <style>
@@ -7,7 +9,7 @@
             padding: 20px;
         }
         
-        h2 {
+        h1 {
             text-align: center;
             color: #333;
         }
@@ -57,7 +59,7 @@
     </style>
     </head>
     <body>
-      <h2>Update Employee</h2>
+      <h1>Update Employee</h1>
       <form method="post">
         {% csrf_token %}
     
@@ -87,3 +89,4 @@
         <input type="submit" value="Update">
       </form>
     </body>
+    {%endblock%}

@@ -1,3 +1,5 @@
+{%extends 'homepage/base.html' %}
+{% block content %}
 <head>
     <style>
         body {
@@ -93,3 +95,4 @@
     </table>
     <a href="{% url 'homepage:add-employees' %}" class="add-button">Add</a>
 </body>
+{%endblock%}

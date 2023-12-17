@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Farm Management System - Dashboard</title>
+
+  <meta http-equiv=”X-UA-Compatible” content=”IE=edge”>
+
+  <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+<style>
+    header {
+        background-color: green;
+        padding: 1px;
+        text-align: center;
+      }
+      
+      h2 {
+        color: white; /* Set the text color to white for better visibility */
+        font-size: 28px; /* Adjust the font size as needed */
+        font-weight: bold; /* Add bold styling for emphasis */
+      }
+      footer {
+        background-color: #333;
+        color: #FFF;
+        padding: 10px;
+        text-align: center;
+      }
+      
+      footer p {
+        font-size: 12px;
+        
+      }
+</style>
+
+</head>
+<body>
+  <header>
+    
+    <h2>WELCOME BACK TO YOUR FARM MANAGER</h2>
+    <!-- Add any additional header elements or navigation here -->
+  </header>
+  {%block content%}
+
+  {% endblock %}
+
+  <div class="content">
+    <!-- Add the main content of the dashboard here -->
+    <p>Welcome to the farm manager. Here you can monitor and manage various aspects of your farm.</p>
+  </div>
+
+  <footer>
+    <!-- Add any footer content or copyright information here -->
+    <p>&copy; 2023 Farm Management System created by Denis Nganga. All rights reserved.</p>
+  </footer>
+</body>
+</html>
