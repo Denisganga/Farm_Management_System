@@ -3,53 +3,59 @@
         <title>add Employee</title>
         {%load static%}  
         <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: whitesmoke;
-                padding: 20px;
-                justify-content: center;
-                align-items: center;
-                height: 90vh;
-                display: flex;
-                
-                
-              }
-              
-              h1 {
-                color: #333;
-                text-align: center;
-              }
-              
-              form {
-                width: 400px;
-                margin: 0 auto;
-                background-color: bisque;
-                padding: 20px;
-                border-radius: 30px;
-                height: 90vh;
-                
-              }
-              
-              form input[type="submit"] {
-                display: block;
-                margin-top: 10px;
-                padding: 10px 20px;
-                background-color: #007bff;
-                color: #fff;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              }
-              
-              form input[type="submit"]:hover {
-                background-color: #0056b3;
-              }
-              form input[type="text"]{
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
             margin-bottom: 15px;
-              }
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
         </style>
     </head>
     

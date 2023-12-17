@@ -1,0 +1,89 @@
+<head>
+    <title>update Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    </head>
+    <body>
+      <h2>Update Employee</h2>
+      <form method="post">
+        {% csrf_token %}
+    
+        <label for="id_Eid">Employers ID:</label>
+        <input type="number" name="Eid" id="id_Eid" value="{{employee.Eid }}" required>
+    
+        <label for="id_Name">Name:</label>
+        <input type="text" name="Name" id="id_Name" value="{{ employee.Name }}" required>
+
+        <label for="id_Country_code">Country code:</label>
+        <input type="text" name="Country_code" id="id_Country_code" value="{{ employee.Country_code }}" required>
+
+        <label for="id_Phone_number">Phone number:</label>
+        <input type="text" name="Phone_number" id="id_Phone_number" value="{{ employee.Phone_number }}" required>
+    
+        <label for="id_Position">Work Position:</label>
+        <input type="text" name="Position" id="id_Position" value="{{ employee.Position }}" required>
+    
+        <label for="id_Salary">Salary Amount:</label>
+        <input type="number" name="Salary" id="id_Salary" value="{{ employee.Salary }}" required>
+    
+        <label for="id_Performance">Performance:</label>
+        <input type="text" name="Performance" id="id_Performance" value="{{ employee.Performance }}"required>
+    
+    
+    
+        <input type="submit" value="Update">
+      </form>
+    </body>

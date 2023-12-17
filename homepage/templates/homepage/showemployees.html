@@ -70,6 +70,7 @@
                 <th>Position</th>
                 <th>Salary</th>
                 <th>Performance</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -83,8 +84,8 @@
                 <td>{{ employee.Salary }}</td>
                 <td>{{ employee.Performance }}</td>
 
-                <td><a href="" class="update-link">Update</a>
-                    <a href=""class="delete-link">Delete</a> </td>
+                <td><a href="{% url 'homepage:update-employees' Eid=employee.Eid %}" class="update-link">Update</a>
+                  <a href="{% url 'homepage:delete-employees' Eid=employee.Eid %}"class="delete-link">Delete</a> </td>
 
             </tr>
             {% endfor %}
