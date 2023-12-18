@@ -47,3 +47,32 @@ def Update_employees(request,Eid):
         return redirect('homepage:show-employees')
     
     return render(request, 'homepage/updateemployees.html', {'employees':employees})
+
+
+#views for crops
+from . models import Crops
+from . crops_form import CropsForm
+
+def Show_crops(request):
+    crops=Crops.objects.filter(user=request.user)
+
+    return render(request, 'homepage/showcrops.html', {'crops':crops})
+
+def Add_crops(request):
+    if request.method=='POST':
+        form=CropsForm(request.POST)
+        if form.is_valid():
+            crops=form.save(commit=False)
+            crops.user = request.user
+            form.save()
+
+            return redirect('homepage:show-crops')
+    else:
+            form = CropsForm()
+
+    return render(request, 'homepage/addcrops.html', {'form':form})
+
+
+
+
+

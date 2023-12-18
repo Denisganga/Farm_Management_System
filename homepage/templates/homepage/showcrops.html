@@ -1,0 +1,112 @@
+{% extends 'homepage/base.html' %}
+{% block content %}
+<head>
+  <title>Crops List</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+      
+      /* Heading */
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+      
+      /* Table */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      
+      table th,
+      table td {
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      
+      /* Table Head */
+      table thead th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+        text-align: left;
+      }
+      
+      /* Table Body */
+      table tbody td {
+        text-align: left;
+      }
+      
+      /* Add Button */
+      .add-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #428bca;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-top: 20px;
+      }
+      
+      .add-button:hover {
+        background-color: #3071a9;
+      }
+      .delete-link {
+        color: red;
+        text-decoration: none;
+      } 
+</style>
+</head>
+<body>
+  <h2>Crops List</h2>
+  {% if crops %}
+    <table class="crop-table">
+      <tr>
+        <th>Crop ID</th>
+        <th>Field Name</th>
+        <th>Field Description</th>
+        <th>Crops Name</th>
+        <th>Variety</th>
+        <th>Planting Date</th>
+        <th>Is Harvested</th>
+        <th>Harvesting Date</th>
+        <th>Expenses</th>
+        <th>Expense Desription</th>
+        <th>Sales</th>
+        <th>Sales Description</th>
+        <th>Actions</th>
+      </tr>
+      {% for crop in crops %}
+        <tr>
+          <td>{{ crop.Cid }}</td>
+          <td>{{ crop.Field_name }}</td>
+          <td>{{ crop.Field_description }}</td>
+          <td>{{ crop.Crop_name }}</td>
+          <td>{{ crop.Variety }}</td>
+          <td>{{ crop.Planting_date }}</td>
+          <td>{{ crop.Is_harvested }}</td>
+          <td>{{ crop.Harvesting_date }}</td>
+          <td>{{ crop.Expenses }}</td>
+          <td>{{ crop.Expenses_description }}</td>
+          <td>{{ crop.Sales }}</td>
+          <td>{{ crop.Sales_description }}</td>
+          <td>
+          
+            <a href="">Update</a>
+            <a href="" class=delete-link>Delete</a>
+          </td>
+          </td>
+         
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p class="no-crops">No crops found.</p>
+  {% endif %}
+  
+  <a href="{%url 'homepage:add-crops' %}" class="add-button">Add</a>
+</body>
+{%endblock%}
