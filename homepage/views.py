@@ -72,6 +72,17 @@ def Add_crops(request):
 
     return render(request, 'homepage/addcrops.html', {'form':form})
 
+def Update_crops(request, Cid):
+    crops = Crops.objects.get(Cid=Cid)
+    form = CropsForm(request.POST, instance=crops)
+
+    if form.is_valid():
+        form.save()
+        return redirect('homepage:show-crops')
+    
+    return render(request, 'homepage/updatecrops.html', {'cros':crops})
+
+
 
 
 
