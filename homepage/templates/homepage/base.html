@@ -7,6 +7,7 @@
   <meta http-equiv=”X-UA-Compatible” content=”IE=edge”>
 
   <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
 <style>
     header {
         background-color: green;
@@ -19,6 +20,23 @@
         font-size: 28px; /* Adjust the font size as needed */
         font-weight: bold; /* Add bold styling for emphasis */
       }
+
+      .left-align {
+        text-align: right;
+        list-style-type:none;
+      }
+  
+      .left-align a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: white;
+      }
+  
+      .left-align a i {
+        margin-right: 10px;
+      }
+
       footer {
         background-color: #333;
         color: #FFF;
@@ -37,6 +55,12 @@
   <header>
     
     <h2>WELCOME BACK TO YOUR FARM MANAGER</h2>
+    <li class= "left-align">
+      <a href="{%url 'homepage:mainpage' %}">
+        <i class='bx bx-grid-alt'></i>
+        <span class="links_name">Dashboard</span>
+      </a>
+    </li>
     <!-- Add any additional header elements or navigation here -->
   </header>
   {%block content%}

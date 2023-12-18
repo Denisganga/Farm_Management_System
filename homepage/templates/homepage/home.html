@@ -20,7 +20,7 @@
       top: 0;
       height: 100%;
       width: 78px;
-      background: #11101d;
+      background: green;
       padding: 6px 14px;
       z-index: 99;
       transition: all 0.5s ease;
@@ -289,7 +289,7 @@
 <div class="sidebar">
   <div class="logo-details">
     <i class='bx bxl-c-plus-plus icon'></i>
-    <div class="logo_name">Plant Doctor</div>
+    <div class="logo_name">Farm Manager</div>
     <i class='bx bx-menu' id="btn"></i>
   </div>
   <ul class="nav-list">
@@ -313,7 +313,7 @@
       <span class="tooltip">Employees</span>
     </li>
     <li>
-      <a href="#">
+      <a href="{% url 'homepage:show-crops' %}">
         <i class="fa-solid fa-seedling"></i> 
         <span class="links_name">Crops Reports</span>
       </a>
@@ -358,8 +358,8 @@
       <div class="profile-details">
         <img src="https://drive.google.com/uc?export=view&id=1ETZYgPpWbbBtpJnhi42_IR3vOwSOpR4z" alt="profileImg">
         <div class="name_job">
-          <div class="name">plant doctor</div>
-          <div class="job">treat the crop</div>
+          <div class="name">Farm Manager</div>
+          <div class="job">manage your crop operations</div>
         </div>
       </div>
       <i class='bx bx-log-out' id="log_out"></i>
