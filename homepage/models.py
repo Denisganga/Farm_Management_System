@@ -41,3 +41,20 @@ class Crops(models.Model):
             return self.Sales - expenses_total
         else:
             return None
+        
+class Machinery(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE,default=1)
+    
+    Number_plate= models.CharField(max_length=20, primary_key=True)
+    Equipment_name= models.CharField(max_length=20)
+    Purchase_price= models.DecimalField(max_digits=10,decimal_places=2, default=0)
+    Purchase_date = models.DateField()
+    Operation=models.TextField(blank=True)
+    Maintenance_activities= models.TextField(blank=True)
+
+    class Meta:
+        db_table = "Machinery"
+    
+
+
+

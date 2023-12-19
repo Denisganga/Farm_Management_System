@@ -1,0 +1,102 @@
+{% extends 'homepage/base.html' %}
+
+{% block content %}
+<head>
+    <title>Show Machinery</title>
+<style>
+
+    /* Body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: antiquewhite
+  }
+  
+  /* Heading */
+  h2 {
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Table Head */
+  table thead th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  /* Table Body */
+  table tbody td {
+    text-align: left;
+  }
+  
+  /* Add Button */
+  .add-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #428bca;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 20px;
+  }
+  
+  .add-button:hover {
+    background-color: #3071a9;
+  }
+  .delete-link {
+    color: red;
+    text-decoration: none;
+  }
+  
+  
+</style>
+</head>
+<body>
+    <h2>Machinery Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Number Plate/ Unique Number</th>
+                <th>Equipment Name</th>
+                <th>Purchase Price</th>
+                <th>Purchase Date</th>
+                <th>Operations</th>
+                <th>Maintenance Activities</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for machinery in machinery %}
+            <tr>
+                <td>{{ machinery.Number_plate }}</td>
+                <td>{{ machinery.Equipment_name }}</td>
+                <td>{{ machinery.Purchase_price }}</td>
+                <td>{{ machinery.Purchase_date }}</td>
+                <td>{{ machinery.Operation }}</td>
+                <td>{{ machinery.Maintenance_activities }}</td>  
+                <td>
+                <a href="" class="update-link">update</a>
+                <a href=""class="delete-link">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="" class="add-button">Add</a>
+</body>
+{%endblock%}

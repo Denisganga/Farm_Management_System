@@ -101,3 +101,15 @@ def Delete_crops (request,Cid):
     return render(request,'homepage/deletecrops.html', {'crops':crops})
 
 
+#views for the Machinery
+
+from .models import Machinery
+from .machinery_form import MachineryForm
+
+def Show_machinery(request):
+    machinery = Machinery.objects.filter(user=request.user)
+
+    return render(request, "homepage/showmachinery.html", {'machinery':machinery})
+
+
+

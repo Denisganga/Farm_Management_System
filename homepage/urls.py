@@ -8,7 +8,8 @@ from .views import (
     Show_crops,
     Add_crops,
     Update_crops,
-    Delete_crops
+    Delete_crops,
+    Show_machinery
 )
 
 app_name = "homepage"
@@ -22,5 +23,6 @@ urlpatterns = [
     path("show_crops/", Show_crops, name="show-crops"),
     path("add-crops/", Add_crops, name="add-crops"),
     path("update_crops/<int:Cid>/", Update_crops, name="update-crops"),
-    path("delete_crops/<int:Cid>/", Delete_crops, name="delete-crops")
+    path("delete_crops/<int:Cid>/", Delete_crops, name="delete-crops"),
+    path('show_machinery/', Show_machinery, name="show-machinery"),
 ]
