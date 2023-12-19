@@ -112,4 +112,16 @@ def Show_machinery(request):
     return render(request, "homepage/showmachinery.html", {'machinery':machinery})
 
 
+def Add_machinery(request):
+    if request.method=='POST':
+        form = MachineryForm(request.POST)
+        if form.is_valid():
+            machinery= form.save(commit=False)
+            machinery.user =request.user
+            form.save()
+            return redirect("homepage:show-machinery")
+        
+    else:
+        form = MachineryForm()
 
+        return render(request,"homepage/addmachinery.html", {"form":form})
