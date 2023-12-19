@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -15,19 +14,29 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Employees',
+            name="Employees",
             fields=[
-                ('Eid', models.IntegerField(default=0, primary_key=True, serialize=False)),
-                ('Name', models.CharField(max_length=50)),
-                ('Country_code', models.CharField(max_length=4)),
-                ('Phone_number', models.CharField(max_length=9)),
-                ('Position', models.CharField(max_length=10)),
-                ('Salary', models.IntegerField()),
-                ('Performance', models.CharField(max_length=10)),
-                ('user', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "Eid",
+                    models.IntegerField(default=0, primary_key=True, serialize=False),
+                ),
+                ("Name", models.CharField(max_length=50)),
+                ("Country_code", models.CharField(max_length=4)),
+                ("Phone_number", models.CharField(max_length=9)),
+                ("Position", models.CharField(max_length=10)),
+                ("Salary", models.IntegerField()),
+                ("Performance", models.CharField(max_length=10)),
+                (
+                    "user",
+                    models.ForeignKey(
+                        default=1,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'db_table': 'employees',
+                "db_table": "employees",
             },
         ),
     ]

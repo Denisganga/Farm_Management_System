@@ -6,29 +6,44 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('homepage', '0001_initial'),
+        ("homepage", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Crops',
+            name="Crops",
             fields=[
-                ('Cid', models.IntegerField(default=0, primary_key=True, serialize=False)),
-                ('Field_name', models.CharField(max_length=50)),
-                ('Field_description', models.TextField()),
-                ('Crop_name', models.CharField(max_length=50)),
-                ('Variety', models.CharField(max_length=20)),
-                ('Planting_date', models.DateField()),
-                ('Is_harvested', models.BooleanField(default=False)),
-                ('Harvesting_date', models.DateField(blank=True, null=True)),
-                ('Expenses', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
-                ('Expenses_description', models.TextField(blank=True)),
-                ('Sales', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
-                ('Sales_description', models.TextField(blank=True)),
-                ('user', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "Cid",
+                    models.IntegerField(default=0, primary_key=True, serialize=False),
+                ),
+                ("Field_name", models.CharField(max_length=50)),
+                ("Field_description", models.TextField()),
+                ("Crop_name", models.CharField(max_length=50)),
+                ("Variety", models.CharField(max_length=20)),
+                ("Planting_date", models.DateField()),
+                ("Is_harvested", models.BooleanField(default=False)),
+                ("Harvesting_date", models.DateField(blank=True, null=True)),
+                (
+                    "Expenses",
+                    models.DecimalField(decimal_places=2, default=0, max_digits=10),
+                ),
+                ("Expenses_description", models.TextField(blank=True)),
+                (
+                    "Sales",
+                    models.DecimalField(decimal_places=2, default=0, max_digits=10),
+                ),
+                ("Sales_description", models.TextField(blank=True)),
+                (
+                    "user",
+                    models.ForeignKey(
+                        default=1,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]
