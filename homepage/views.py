@@ -125,3 +125,12 @@ def Add_machinery(request):
         form = MachineryForm()
 
         return render(request,"homepage/addmachinery.html", {"form":form})
+
+
+def Delete_machinery(request,Number_plate):
+    machinery=Machinery.objects.get(Number_plate=Number_plate)
+    if request.method=="POST":
+        machinery.delete()
+        return redirect("homepage:show-machinery")
+        
+    return render(request,"homepage/deletemachinery.html", {"machinery":machinery})
