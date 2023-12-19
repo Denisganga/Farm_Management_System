@@ -61,7 +61,7 @@
 </style>
 </head>
 <body>
-  <h2>Crops List</h2>
+  <h1>Crops List</h1>
   {% if crops %}
     <table class="crop-table">
       <tr>
@@ -96,7 +96,7 @@
           <td>
           
             <a href="{% url 'homepage:update-crops' Cid=crop.Cid %}" class="update-link">Update</a>
-            <a href="" class=delete-link>Delete</a>
+            <a href="{% url 'homepage:delete-crops' Cid=crop.Cid %}" class=delete-link>Delete</a>
           </td>
           </td>
          

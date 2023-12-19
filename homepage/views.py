@@ -92,4 +92,12 @@ def Update_crops(request, Cid):
 
     return render(request, "homepage/updatecrops.html", {"crops": crops})
 
+def Delete_crops (request,Cid):
+    crops=Crops.objects.get(Cid=Cid)
+    if request.method =="POST":
+        crops.delete()
+        return redirect("homepage:show-crops")
+    
+    return render(request,'homepage/deletecrops.html', {'crops':crops})
+
 
