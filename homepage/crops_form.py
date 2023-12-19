@@ -10,9 +10,11 @@ class CropsForm(forms.ModelForm):
             "Field_name",
             "Field_description",
             "Crop_name",
+            "Variety",
             "Planting_date",
             "Harvesting_date",
             "Expenses",
             "Expenses_description",
             "Sales",
+            "Sales_description"
         ]

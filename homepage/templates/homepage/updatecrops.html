@@ -70,7 +70,7 @@
         <input type="text" name="Field_name" id="id_Field_name" value="{{ crops.Field_name }}" required>
     
         <label for="id_Field_description">Field Description:</label>
-        <textarea name="description" id="id_Field_description" required>{{ crops.Field_description }}</textarea>
+        <textarea name="Field_description" id="id_Field_description" required> value"{{ crops.Field_description }}"</textarea>
 
         <label for="id_Crop_name">Crop Name:</label>
         <input type="text" name="Crop_name" id="id_Crop_name" value="{{ crops.Crop_name }}" required>
@@ -79,7 +79,7 @@
         <input type="text" name="Variety" id="id_Variety" value="{{ crops.Variety }}" required>
     
         <label for="id_planting_date">Planting Date:</label>
-        <input type="date" name="planting_date" id="id_planting_date" value="{{ crops.planting_date|date:'Y-m-d' }}" required>
+        <input type="date" name="Planting_date" id="id_planting_date" value="{{ crops.Planting_date|date:'Y-m-d' }}" required>
 
         <label for="id_Is_harvested">Is Harvested:</label>
         <input type="checkbox" name="Is_harvested" id="id_Is_harvested" {% if crops.Is_harvested %}checked{% endif %}>
@@ -88,16 +88,16 @@
         <input type="date" name="Harvesting_date" id="id_Harvesting_date" value="{{ crops.Harvesting_date|date:'Y-m-d' }}" >
     
         <label for="id_Expenses">Expenses:</label>
-        <input type="number" id="Expenses" value="{{ crops.Expenses }}" required>
+        <input type="number" name="Expenses" id="Expenses" value="{{ crops.Expenses }}" required>
 
         <label for="id_Expenses_description">Description:</label>
-        <textarea name="description" id="id_Expenses_description" required>{{ crops.Expenses_description }}</textarea>
+        <textarea name="Expenses_description" id="id_Expenses_description" required>{{ crops.Expenses_description }}</textarea>
     
         <label for="id_Sales">Sales:</label>
         <input type="number" name="Sales" id="id_Sales" value="{{ crops.Sales }}" >
     
         <label for="id_Sales_description">Sales Description:</label>
-        <textarea name="description" id="id_Sales_description" >{{ crops.Expenses_description }}</textarea>
+        <textarea name="Sales_description" id="id_Sales_description" >{{ crops.Sales_description }}</textarea>
     
         <input type="submit" value="Update">
       </form>

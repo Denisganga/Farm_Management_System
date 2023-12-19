@@ -86,5 +86,10 @@ def Update_crops(request, Cid):
     if form.is_valid():
         form.save()
         return redirect("homepage:show-crops")
+    
+    else:
+        print(form.errors)
 
-    return render(request, "homepage/updatecrops.html", {"cros": crops})
+    return render(request, "homepage/updatecrops.html", {"crops": crops})
+
+
