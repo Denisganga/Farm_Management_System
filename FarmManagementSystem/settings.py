@@ -75,17 +75,17 @@ WSGI_APPLICATION = "FarmManagementSystem.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "farmer.db",
-        #'NAME': 'Farmer',
-        "PASSWORD": "",
-        "USER": "root",
-        "PORT": "3306",
-        "HOST": "localhost",
-        "OPTIONS": {
-            #'sql_mode':'STRICT_ALL_TABLES',
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Farmer',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'OPTIONS': {
+            'sql_mode': 'STRICT_ALL_TABLES',
         },
     }
 }
