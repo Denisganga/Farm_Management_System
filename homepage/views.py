@@ -134,3 +134,17 @@ def Delete_machinery(request,Number_plate):
         return redirect("homepage:show-machinery")
         
     return render(request,"homepage/deletemachinery.html", {"machinery":machinery})
+
+
+def Update_machinery(request,Number_plate):
+    machinery=Machinery.objects.get(Number_plate=Number_plate)
+    form = MachineryForm(request.POST, instance=machinery)
+
+    if form.is_valid():
+        form.save()
+        return redirect("homepage:show-machinery")
+    
+    else:
+        print(form.errors)
+    
+    return render(request, "homepage/updatemachinery.html", {'machinery':machinery})

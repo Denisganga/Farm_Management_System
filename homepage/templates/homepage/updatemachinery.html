@@ -1,0 +1,88 @@
+{%extends 'homepage/base.html'%}
+{%block content%}
+<head>
+    <title>update machinery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    </head>
+    <body>
+      <h1>Update Machinery</h1>
+      <form method="post">
+        {% csrf_token %}
+    
+        <label for="id_Number_plate">Number Plate:</label>
+        <input type="text" name="Number_plate" id="id_Number_plate" value="{{machinery.Number_plate }}" required>
+    
+        <label for="id_Equipment_name">Equipment Name:</label>
+        <input type="text" name="Equipment_name" id="id_Equipment_name" value="{{ machinery.Equipment_name }}" required>
+    
+        <label for="id_Purchase_price">Purchase Price:</label>
+        <input type="number" name="Purchase_price" id="id_Purchase_price" value="{{ machinery.Purchase_price }}" required>
+    
+        <label for="id_Purchase_date">Purchase Date:</label>
+        <input type="date" name="Purchase_date" id="id_description" value="{{ machinery.Purchase_date }}" required>
+    
+        <label for="id_Operation">Operations:</label>
+        <input type="description" name="Operation" id="id_Operation" value="{{ machinery.Operation }}"required>
+    
+        <label for="id_Maintenance_activities">Maintenance Activities:</label>
+        <input type="description" name="Maintenance_activities" id="id_Maintenance_activities" value="{{ machinery.Maintenance_activities }}"required>
+    
+    
+        <input type="submit" value="Update">
+      </form>
+    </body>
+    {%endblock%}
