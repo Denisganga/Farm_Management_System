@@ -61,36 +61,32 @@
     </style>
 </head>
 <body>
-    <h1>Livestock Details</h1>
+    <h1>Daily Production Details</h1>
     <table>
         <thead>
             <tr>
-                <th>Tag Number</th>
-                <th>Animal Type</th>
-                <th>Age</th>
-                <th>Breed</th>
-                <th>More Details</th>
+                <th>Production Date</th>
+                <th>Production Amount</th>
+                <th>Feed Consumed</th>
+                <th>Comments</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            {% for livestock in livestock %}
+            {% for livestock_production in livestock_production %}
             <tr>
-                <td>{{ livestock.Tag_number }}</td>
-                <td>{{ livestock.Animal_type }}</td>
-                <td>{{ livestock.Age }}</td>
-                <td>{{ livestock.Breed }}</td>
+                <td>{{ livestock_production.Production_date }}</td>
+                <td>{{ livestock_production.Production_amount }}</td>
+                <td>{{ livestock_production.Feed_consumed }}</td>
+                <td>{{ livestock_production.Comments }}</td>
 
-                <td>  <a href="{% url 'homepage:show-livestockproduction' Tag_number=livestock.Tag_number %}" class="update-link">Production</a></td>
-
-                <td><a href="{% url 'homepage:update-livestock' Tag_number=livestock.Tag_number %}" class="update-link">Update</a>
-                 
-                  <a href="{% url 'homepage:delete-livestock' Tag_number=livestock.Tag_number %}"class="delete-link">Delete</a> </td>
+                <td><a href="" class="update-link">Update</a>
+                  <a href=""class="delete-link">Delete</a> </td>
 
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url 'homepage:add-livestock' %}" class="add-button">Add</a>
+    <a href="{% url 'homepage:add-livestockproduction' Tag_number=livestock.Tag_number %}" class="add-button">Add</a>
 </body>
 {%endblock%}
