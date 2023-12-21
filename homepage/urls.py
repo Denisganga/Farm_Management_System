@@ -12,7 +12,11 @@ from .views import (
     Show_machinery,
     Add_machinery,
     Delete_machinery,
-    Update_machinery
+    Update_machinery,
+    Show_livestock,
+    Add_livestock,
+    Update_livestock,
+    Delete_livestock
 )
 
 app_name = "homepage"
@@ -31,4 +35,8 @@ urlpatterns = [
     path("add-machinery/", Add_machinery, name="add-machinery"),
     path("delete_machinery/<str:Number_plate>/", Delete_machinery, name="delete-machinery",),
     path("update_machinery/<str:Number_plate>/", Update_machinery, name="update-machinery"),
+    path("show_livestock/", Show_livestock, name="show-livestock"),
+    path("add_livestock/", Add_livestock,name="add-livestock"),
+    path("update_livestock/<str:Tag_number>/", Update_livestock, name="update-livestock" ),
+    path("delete_livestock/<str:Tag_number>/", Delete_livestock, name="delete-livestock"),
 ]

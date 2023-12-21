@@ -54,6 +54,18 @@ class Machinery(models.Model):
 
     class Meta:
         db_table = "Machinery"
+
+class Livestock(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+
+    Tag_number = models.CharField(max_length=20, primary_key=True)
+    Animal_type= models.CharField(max_length=20)
+    Age= models.IntegerField()
+    Breed= models.CharField(max_length=20)
+
+    class Meta:
+        db_table = "Livestock"
+
     
 
 

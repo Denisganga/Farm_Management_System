@@ -148,3 +148,49 @@ def Update_machinery(request,Number_plate):
         print(form.errors)
     
     return render(request, "homepage/updatemachinery.html", {'machinery':machinery})
+
+#view function of the livestock section
+from .livestock_form import LivestockForm
+from .models import Livestock
+
+def Show_livestock(request):
+    livestock=Livestock.objects.filter(user=request.user)
+    return render(request,"homepage/showlivestock.html", {'livestock':livestock})
+
+
+def Add_livestock(request):
+    if request.method=="POST":
+        form=LivestockForm(request.POST)
+        if form.is_valid():
+            livestock=form.save(commit=False)
+            livestock.user = request.user
+
+            form.save()
+
+            return redirect("homepage:show-livestock")
+        
+    else:
+        form = LivestockForm()
+        return render(request,"homepage/addlivestock.html", {'form':form})
+    
+
+def Update_livestock(request,Tag_number):
+    livestock=Livestock.objects.get(Tag_number=Tag_number)
+    form = LivestockForm(request.POST,instance=livestock)
+
+    if form.is_valid():
+        form.save()
+        return redirect("homepage:show-livestock")
+    
+    else:
+        print(form.errors)
+
+    return render(request,"homepage/updatelivestock.html",{'livestock':livestock})
+
+def Delete_livestock(request,Tag_number):
+    livestock=Livestock.objects.get(Tag_number=Tag_number)
+    if request.method=="POST":
+        livestock.delete()
+        return redirect("homepage:show-livestock")
+    
+    return render(request, "homepage/deletelivestock.html", {'livestock':livestock})
