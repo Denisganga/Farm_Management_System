@@ -218,3 +218,13 @@ def Add_livestock_production(request, Tag_number):
         form = Livestock_productionForm()
 
         return render(request, 'homepage/addlivestockproduction.html', {'form': form, 'livestock': livestock})
+    
+
+def Delete_livestock_production(request,Tag_number,Production_date):
+    livestock_production = get_object_or_404(Livestock_production,livestock__Tag_number=Tag_number,Production_date=Production_date)
+    if request.method=="POST":
+        livestock_production.delete()
+        return redirect("homepage:show-livestockproduction",  Tag_number=livestock_production.livestock.Tag_number)
+    
+    return render(request, 'homepage/deletelivestockproduction.html',{'livestock_production':livestock_production})
+

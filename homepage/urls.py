@@ -18,7 +18,8 @@ from .views import (
     Update_livestock,
     Delete_livestock,
     Show_livestock_production,
-    Add_livestock_production
+    Add_livestock_production,
+    Delete_livestock_production
     
 )
 
@@ -43,6 +44,6 @@ urlpatterns = [
     path("update_livestock/<str:Tag_number>/", Update_livestock, name="update-livestock" ),
     path("delete_livestock/<str:Tag_number>/", Delete_livestock, name="delete-livestock"),
     path('show_livestockproduction/<str:Tag_number>/', Show_livestock_production, name='show-livestockproduction'),
-    path('add_livestockproduction/<str:Tag_number>/',Add_livestock_production, name='add-livestockproduction')
-    
+    path('add_livestockproduction/<str:Tag_number>/',Add_livestock_production, name='add-livestockproduction'),
+    path('delete_livestockproduction/<str:Tag_number>/<slug:Production_date>/', Delete_livestock_production, name='delete-livestockproduction'),
 ]
