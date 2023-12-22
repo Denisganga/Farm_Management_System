@@ -152,6 +152,7 @@ def Update_machinery(request,Number_plate):
 #view function of the livestock section
 from .livestock_form import LivestockForm,Livestock_productionForm
 from .models import Livestock,Livestock_production
+from django.shortcuts import render, get_object_or_404
 
 def Show_livestock(request):
     livestock = Livestock.objects.filter(user=request.user)
@@ -196,25 +197,24 @@ def Delete_livestock(request,Tag_number):
     
     return render(request, "homepage/deletelivestock.html", {'livestock':livestock})
 
-def Show_livestock_production(request,Tag_number):
-    livestock_production=Livestock_production.objects.filter(livestock__Tag_number=Tag_number)
-    return render(request,"homepage/showlivestockproduction.html", {'livestock_production':livestock_production})
+def Show_livestock_production(request, Tag_number):
+    livestock = get_object_or_404(Livestock, Tag_number=Tag_number)
+    productions = Livestock_production.objects.filter(livestock=livestock)
+
+    return render(request, 'homepage/showlivestockproduction.html', {'livestock': livestock, 'productions': productions})
 
 
-def Add_livestock_production(request,Tag_number):
-    livestock_production=Livestock.objects.get(Tag_number=Tag_number)
-    if request.method=="POST":
-        form=Livestock_productionForm(request.POST)
+def Add_livestock_production(request, Tag_number):
+    livestock = get_object_or_404(Livestock, Tag_number=Tag_number)
+
+    if request.method == 'POST':
+        form = Livestock_productionForm(request.POST)
         if form.is_valid():
-            livestock_production=form.save(commit=False)
-            livestock_production=request.livestock
-
+            livestock_production = form.save(commit=False)
+            livestock_production.livestock = livestock
             livestock_production.save()
-            return redirect("homepage:show-livestockproduction")
-        
+            return redirect('homepage:show-livestockproduction', Tag_number=livestock.Tag_number)
     else:
-        form=Livestock_productionForm()
-        return render(request,"homepage/addlivestockproduction.html",{'livestock_production':livestock_production},{'form':form})
+        form = Livestock_productionForm()
 
-
-
+        return render(request, 'homepage/addlivestockproduction.html', {'form': form, 'livestock': livestock})

@@ -70,9 +70,12 @@ class Livestock(models.Model):
 
 class Livestock_production(models.Model):
     livestock=models.ForeignKey(Livestock,on_delete=models.CASCADE)
-    Production_date=models.DateField()
+    Production_date=models.DateField(help_text='m/d/y')
     Production_amount=models.CharField(max_length=20)
     Feed_consumed=models.DecimalField(max_digits=10,decimal_places=2,help_text='field consumed in kg')
     Comments=models.TextField(null=True,blank=True)
+
+    class Meta:
+        db_table="Livestock_production"
 
 

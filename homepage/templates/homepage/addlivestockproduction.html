@@ -12,7 +12,7 @@
                 padding: 20px;
             }
             
-            h2 {
+            h1 {
                 text-align: center;
                 color: #333;
             }
@@ -64,8 +64,8 @@
     
     <body>
         
-        <form method="POST" action={%url 'homepage:add-livestock'%}>
-            <h2>Add Livestock Production</h2>
+        <form method="POST" action="">
+            <h1>Add Livestock Production</h1>
             {%csrf_token%}
             {{form.as_p}}
             <input type="submit" value="add">

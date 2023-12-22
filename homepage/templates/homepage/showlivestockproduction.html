@@ -73,12 +73,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for livestock_production in livestock_production %}
+            {% for production in productions %}
             <tr>
-                <td>{{ livestock_production.Production_date }}</td>
-                <td>{{ livestock_production.Production_amount }}</td>
-                <td>{{ livestock_production.Feed_consumed }}</td>
-                <td>{{ livestock_production.Comments }}</td>
+                <td>{{ production.Production_date }}</td>
+                <td>{{ production.Production_amount }}</td>
+                <td>{{ production.Feed_consumed }}</td>
+                <td>{{ production.Comments }}</td>
 
                 <td><a href="" class="update-link">Update</a>
                   <a href=""class="delete-link">Delete</a> </td>
@@ -87,6 +87,8 @@
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url 'homepage:add-livestockproduction' Tag_number=livestock.Tag_number %}" class="add-button">Add</a>
+
+    
+    <a href="{% url 'homepage:add-livestockproduction' Tag_number=livestock.Tag_number %}" class="add-button">Add Livestock Production</a>
 </body>
 {%endblock%}

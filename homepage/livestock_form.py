@@ -15,7 +15,7 @@ class LivestockForm(forms.ModelForm):
                 ]
 
 class Livestock_productionForm(forms.ModelForm):
-    class MEta:
+    class Meta:
         model=Livestock_production
         fields=[
             'Production_date',
