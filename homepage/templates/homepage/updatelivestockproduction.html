@@ -66,14 +66,14 @@
         <label for="id_Production_date">Production Date:</label>
         <input type="date" name="Production_date" id="id_Production_date" value="{{livestock_production.Production_date }}" required>
     
-        <label for="id_Animal_type">Animal Type:</label>
-        <input type="text" name="Animal_type" id="id_Animal_type" value="{{ livestock.Animal_type }}" required>
+        <label for="id_Production_amount">Production Amount:</label>
+        <input type="text" name="Production_amount" id="id_Production_amount" value="{{ livestock_production.production_amount }}">
 
-        <label for="id_Age">Age:</label>
-        <input type="number" name="Age" id="id_Age" value="{{ livestock.Age }}" required>
+        <label for="id_Feed_consumed">Feed Consumed in kg:</label>
+        <input type="number" name="Feed_consumed" id="id_Feed_consumed" value="{{ livestock_production.Feed_consumed }}" required>
 
-        <label for="id_Breed">Breed:</label>
-        <input type="text" name="Breed" id="id_Breed" value="{{ livestock.Breed }}" required>    
+        <label for="id_Comments">Comments:</label>
+        <input type="text" name="Comments" id="id_Comments" value="{{ livestock_production.Comments }}" required>    
         <input type="submit" value="Update">
       </form>
     </body>
