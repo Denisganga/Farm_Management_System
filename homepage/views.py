@@ -228,3 +228,15 @@ def Delete_livestock_production(request,Tag_number,Production_date):
     
     return render(request, 'homepage/deletelivestockproduction.html',{'livestock_production':livestock_production})
 
+def Update_livestock_production(request,Tag_number,Production_date):
+    livestock=get_object_or_404(Livestock,Tag_number=Tag_number)
+    livestock_production=get_object_or_404(Livestock_production,livestock__Tag_number=Tag_number,Production_date=Production_date)
+    form=Livestock_productionForm(request.POST,instance=livestock_production)
+
+    if form.is_valid():
+        form.save()
+        return redirect('homepage:show-livestockproduction', Tag_number=livestock_production.livestock.Tag_number)
+    else:
+        print(form.errors)
+
+    return render(request,'homepage/updatelivestockproduction.html',{'livestock':livestock, 'livestock_production':livestock_production})

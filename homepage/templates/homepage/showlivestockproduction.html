@@ -80,7 +80,7 @@
                 <td>{{ production.Feed_consumed }}</td>
                 <td>{{ production.Comments }}</td>
 
-                <td><a href="" class="update-link">Update</a>
+                <td><a href="{% url 'homepage:update-livestockproduction' Tag_number=livestock.Tag_number Production_date=production.Production_date|date:'Y-m-d' %}" class="update-link">Update</a>
                   <a href="{% url 'homepage:delete-livestockproduction' Tag_number=livestock.Tag_number Production_date=production.Production_date|date:'Y-m-d' %}" class="delete-link">Delete</a>
 
 
