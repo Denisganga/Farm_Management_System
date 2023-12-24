@@ -54,8 +54,8 @@ def Update_employees(request, Eid):
 
 
 # views for crops
-from .models import Crops
-from .crops_form import CropsForm
+from .models import Crops,Crop_expenses
+from .crops_form import CropsForm,Crop_expensesForm
 
 
 def Show_crops(request):
@@ -99,6 +99,27 @@ def Delete_crops (request,Cid):
         return redirect("homepage:show-crops")
     
     return render(request,'homepage/deletecrops.html', {'crops':crops})
+
+def Show_crop_expenses(request,Cid):
+    crops=get_object_or_404(Crops,Cid=Cid)
+    expenses=Crop_expenses.objects.filter(crops=crops)
+
+    return render(request,'homepage/showcropexpenses.html',{'crops':crops,'expenses':expenses})
+
+def Add_crop_expenses(request,Cid):
+    crops=get_object_or_404(Crops,Cid=Cid)
+
+    if request.method=='POST':
+        form=Crop_expensesForm(request.POST)
+        if form.is_valid():
+            crop_expense=form.save(commit=False)
+            crop_expense.crops=crops
+            crop_expense.save()
+            return redirect('homepage:show-cropexpenses', Cid=crops.Cid)
+        
+    else:
+        form = Crop_expensesForm()
+        return render(request,'homepage/addcropexpenses.html',{'form':form, 'crops':crops})
 
 
 #views for the Machinery
