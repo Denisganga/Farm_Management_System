@@ -42,6 +42,24 @@ class Crops(models.Model):
         else:
             return None
         
+class Crop_expenses(models.Model):
+    crops=models.ForeignKey(Crops,on_delete=models.CASCADE)
+
+    Expense_date=models.DateField(help_text='m/d/y')
+    Expense_type=models.CharField(max_length=20)
+    Expense_description=models.TextField()
+    Budget= models.DecimalField(max_digits=10,decimal_places=2,default=0)
+    Expense_amount=models.DecimalField(max_digits=10,decimal_places=2,default=0)
+    Supplier=models.CharField(max_length=20)
+    Payment_method=models.CharField(max_length=10)
+    Receipt_number=models.CharField(max_length=20)
+
+    class Meta:
+        db_table="Crop_expenses"
+
+    
+
+        
 class Machinery(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE,default=1)
     
