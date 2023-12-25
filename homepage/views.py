@@ -135,6 +135,15 @@ def Update_crop_expenses(request,Cid,Expense_date):
 
     return render(request,'homepage/updatecropexpenses.html',{'crops':crops,'crop_expenses':crop_expenses})
 
+def Delete_crop_expenses(request,Cid,Expense_date):
+    crop_expenses=get_object_or_404(Crop_expenses, crops__Cid=Cid,Expense_date=Expense_date)
+    if request.method=="POST":
+        Crop_expenses.delete()
+        return redirect('homepage:show-cropexpenses ',Cid=crop_expenses.crops.Cid)
+    
+    return render(request,'homepage/deletecropexpenses.html',{'crop_expenses':crop_expenses})
+    
+
 
 
 #views for the Machinery
