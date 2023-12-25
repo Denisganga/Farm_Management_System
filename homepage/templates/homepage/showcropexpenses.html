@@ -88,7 +88,7 @@
                 <td>{{ expense.Payment_method }}</td>
                 <td>{{ expense.Receipt_number }}</td>
 
-                <td><a href="" class="update-link">Update</a>
+                <td><a href="{%url 'homepage:update-cropexpenses' Cid=crops.Cid Expense_date=expense.Expense_date|date:'Y-m-d' %}" class="update-link">Update</a>
                   <a href="" class="delete-link">Delete</a>
 
 

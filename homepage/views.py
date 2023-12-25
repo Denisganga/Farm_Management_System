@@ -120,6 +120,21 @@ def Add_crop_expenses(request,Cid):
     else:
         form = Crop_expensesForm()
         return render(request,'homepage/addcropexpenses.html',{'form':form, 'crops':crops})
+    
+
+def Update_crop_expenses(request,Cid,Expense_date):
+    crops=get_object_or_404(Crops,Cid=Cid)
+    crop_expenses=get_object_or_404(Crop_expenses,crops__Cid=Cid,Expense_date=Expense_date)
+    form=Crop_expensesForm(request.POST,instance=crop_expenses)
+
+    if form.is_valid():
+        form.save()
+        return redirect('homepage:show-cropexpenses',Cid=crop_expenses.crops.Cid)
+    else:
+        print(form.errors)
+
+    return render(request,'homepage/updatecropexpenses.html',{'crops':crops,'crop_expenses':crop_expenses})
+
 
 
 #views for the Machinery
