@@ -97,8 +97,6 @@
         <th>Planting Date</th>
         <th>Is Harvested</th>
         <th>Harvesting Date</th>
-        <th>Sales</th>
-        <th>Sales Description</th>
         <th>Expenses Monitor</th>
         <th>Sales Monitor</th>
         <th>Actions</th>
@@ -113,8 +111,6 @@
           <td>{{ crop.Planting_date }}</td>
           <td>{{ crop.Is_harvested }}</td>
           <td>{{ crop.Harvesting_date }}</td>
-          <td>{{ crop.Sales }}</td>
-          <td>{{ crop.Sales_description }}</td>
 
           <td>
              <a href="{% url 'homepage:show-cropexpenses' Cid=crop.Cid %}" class=expenses-link>Expenses</a></td>

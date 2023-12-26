@@ -13,8 +13,6 @@ class CropsForm(forms.ModelForm):
             "Variety",
             "Planting_date",
             "Harvesting_date",
-            "Sales",
-            "Sales_description"
         ]
 
 class Crop_expensesForm(forms.ModelForm):

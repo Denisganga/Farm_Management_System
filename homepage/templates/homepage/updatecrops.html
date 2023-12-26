@@ -87,11 +87,6 @@
         <label for="id_Harvesting_date">Harvesting Date:</label>
         <input type="date" name="Harvesting_date" id="id_Harvesting_date" value="{{ crops.Harvesting_date|date:'Y-m-d' }}" >
     
-        <label for="id_Sales">Sales:</label>
-        <input type="number" name="Sales" id="id_Sales" value="{{ crops.Sales }}" >
-    
-        <label for="id_Sales_description">Sales Description:</label>
-        <textarea name="Sales_description" id="id_Sales_description" >{{ crops.Sales_description }}</textarea>
     
         <input type="submit" value="Update">
       </form>

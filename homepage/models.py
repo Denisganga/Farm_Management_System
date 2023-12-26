@@ -31,8 +31,6 @@ class Crops(models.Model):
     Planting_date = models.DateField()
     Is_harvested = models.BooleanField(default=False)
     Harvesting_date = models.DateField(null=True, blank=True)
-    Sales = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    Sales_description = models.TextField(blank=True)
 
     def calculate_profit(self):
         if self.Harvesting_date and self.Sales:
