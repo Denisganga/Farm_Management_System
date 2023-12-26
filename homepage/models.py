@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from decimal import Decimal
 
 # Create your models here.
 
@@ -71,13 +72,16 @@ class Crop_sales(models.Model):
 
 
 #lets over ride the save method in order before saving it calculates the total amount
-    def save(self,*args, **kwargs):
-        self.Total_price=self.Unit_price * self.Quantity_sold
-        super().save(*args, **kwargs)  #calls now the original save
 
-    def __str__(self):
-        return f"{self.crop}  - {self.Sale_date}"
 
+    def save(self, *args, **kwargs):
+        # Convert Decimal values to float for multiplication
+        quantity_sold = float(self.Quantity_sold)
+        unit_price = float(self.Unit_price)
+
+            # Calculate total sale amount before saving
+        self.Total_price = Decimal(quantity_sold * unit_price)
+        super().save(*args, **kwargs)
 
     
 

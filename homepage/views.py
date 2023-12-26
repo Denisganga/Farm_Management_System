@@ -150,6 +150,21 @@ def Show_crop_sales(request,Cid):
 
     return render(request,"homepage/showcropsales.html",{'crops':crops,'sales':sales})
 
+def Add_crop_sales(request,Cid):
+    crops=get_object_or_404(Crops,Cid=Cid)
+
+    if request.method =='POST':
+        form=Crop_salesForm(request.POST)
+        if form.is_valid():
+            crop_sale=form.save(commit=False)
+            crop_sale.crops=crops
+            crop_sale.save()
+            return redirect('homepage:show-cropsales', Cid=crops.Cid)
+        
+    else:
+        form=Crop_salesForm()
+        return render(request,'homepage/addcropsales.html', {'form':form, 'crops':crops})
+
 #views for the Machinery
 
 from .models import Machinery
