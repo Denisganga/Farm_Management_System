@@ -54,8 +54,8 @@ def Update_employees(request, Eid):
 
 
 # views for crops
-from .models import Crops,Crop_expenses
-from .crops_form import CropsForm,Crop_expensesForm
+from .models import Crops,Crop_expenses,Crop_sales
+from .crops_form import CropsForm,Crop_expensesForm,Crop_salesForm
 
 
 def Show_crops(request):
@@ -144,7 +144,11 @@ def Delete_crop_expenses(request,Cid,Expense_date):
     return render(request,'homepage/deletecropexpenses.html',{'crop_expenses':crop_expenses})
     
 
+def Show_crop_sales(request,Cid):
+    crops=get_object_or_404(Crops,Cid=Cid)
+    sales=Crop_sales.objects.filter(crops=crops)
 
+    return render(request,"homepage/showcropsales.html",{'crops':crops,'sales':sales})
 
 #views for the Machinery
 

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Crops,Crop_expenses
+from .models import Crops,Crop_expenses,Crop_sales
 
 
 class CropsForm(forms.ModelForm):
@@ -29,4 +29,18 @@ class Crop_expensesForm(forms.ModelForm):
             "Supplier",
             "Payment_method",
             "Receipt_number"
+        ]
+
+class Crop_salesForm(forms.ModelForm):
+    class Meta:
+        model=Crop_sales
+        fields=[
+            'Sale_date',
+            'Quantity_sold',
+            'Unit_price',
+            'Buyer_information',
+            'Payment_method',
+            'Payment_status',
+            'Invoice_number',
+            'Additional_notes'
         ]
