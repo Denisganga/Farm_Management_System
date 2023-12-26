@@ -87,12 +87,6 @@
         <label for="id_Harvesting_date">Harvesting Date:</label>
         <input type="date" name="Harvesting_date" id="id_Harvesting_date" value="{{ crops.Harvesting_date|date:'Y-m-d' }}" >
     
-        <label for="id_Expenses">Expenses:</label>
-        <input type="number" name="Expenses" id="Expenses" value="{{ crops.Expenses }}" required>
-
-        <label for="id_Expenses_description">Description:</label>
-        <textarea name="Expenses_description" id="id_Expenses_description" required>{{ crops.Expenses_description }}</textarea>
-    
         <label for="id_Sales">Sales:</label>
         <input type="number" name="Sales" id="id_Sales" value="{{ crops.Sales }}" >
     
