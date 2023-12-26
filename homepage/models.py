@@ -55,6 +55,30 @@ class Crop_expenses(models.Model):
     class Meta:
         db_table="Crop_expenses"
 
+
+class Crop_sales(models.Model):
+    crops=models.ForeignKey(Crops,on_delete=models.CASCADE)
+
+    Sale_date=models.DateField(help_text='m/d/y')
+    Quantity_sold=models.CharField(max_length=20)
+    Unit_price=models.DecimalField(max_digits=10,decimal_places=2,default=0)
+    Total_price=models.DecimalField(max_digits=10,decimal_places=2,default=0)
+    Buyer_information=models.TextField()
+    Payment_method=models.CharField(max_length=20)
+    Payment_status=models.CharField(max_length=20, choices=[('pending', 'Pending'), ('received', 'Received')])
+    Invoice_number=models.CharField(max_length=20)
+    Additional_notes=models.TextField(blank=True)
+
+
+#lets over ride the save method in order before saving it calculates the total amount
+    def save(self,*args, **kwargs):
+        self.Total_price=self.Unit_price * self.Quantity_sold
+        super().save(*args, **kwargs)  #calls now the original save
+
+    def __str__(self):
+        return f"{self.crop}  - {self.Sale_date}"
+
+
     
 
         
