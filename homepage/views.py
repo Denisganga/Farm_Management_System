@@ -164,6 +164,16 @@ def Add_crop_sales(request,Cid):
     else:
         form=Crop_salesForm()
         return render(request,'homepage/addcropsales.html', {'form':form, 'crops':crops})
+    
+
+def Delete_crop_sales(request,Cid,Sale_date):
+    crop_sales=get_object_or_404(Crop_sales,crops__Cid=Cid,Sale_date=Sale_date)
+
+    if request.method=='POST':
+        crop_sales.delete()
+        return redirect('homepage:show-cropsales', Cid=crop_sales.crops.Cid)
+    return render(request,'homepage/deletecropsales.html',{'crop_sales':crop_sales})
+    
 
 #views for the Machinery
 
