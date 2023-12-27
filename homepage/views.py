@@ -173,6 +173,21 @@ def Delete_crop_sales(request,Cid,Sale_date):
         crop_sales.delete()
         return redirect('homepage:show-cropsales', Cid=crop_sales.crops.Cid)
     return render(request,'homepage/deletecropsales.html',{'crop_sales':crop_sales})
+
+def Update_crop_sales(request,Cid,Sale_date):
+    crops= get_object_or_404(Crops,Cid=Cid)
+    crop_sales=get_object_or_404(Crop_sales,crops__Cid=Cid,Sale_date=Sale_date)
+    form=Crop_salesForm(request.POST,instance=crop_sales)
+
+    if form.is_valid():
+        form.save()
+
+        return redirect('homepage:show-cropsales', Cid=crop_sales.crops.Cid)
+    
+    else:
+        print(form.errors)
+
+    return render(request,'homepage/updatecropsales.html',{'crops':crops,'crop_sales':crop_sales})
     
 
 #views for the Machinery
