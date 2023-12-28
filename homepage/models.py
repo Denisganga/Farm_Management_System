@@ -79,7 +79,17 @@ class Crop_sales(models.Model):
 
             # Calculate total sale amount before saving
         self.Total_price = Decimal(quantity_sold * unit_price)
-        super().save(*args, **kwargs)
+        super().save(*args, **kwargs) #here we are calling the initial save 
+
+class Crop_operations(models.Model):
+    crops=models.ForeignKey(Crops,on_delete=models.CASCADE)
+
+    Operation_date=models.DateField(help_text="m/d/y")
+    Operation_name=models.CharField(max_length=20)
+    Additional_notes=models.TextField(blank=True)
+
+    class Meta:
+        db_table="Crop_operations"
 
     
 
