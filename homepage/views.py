@@ -193,7 +193,21 @@ def Show_crop_operations(request,Cid):
     crops=get_object_or_404(Crops,Cid=Cid)
     operations=Crop_operations.objects.filter(crops=crops)
 
-    return render(request,'homepage/showcropoperations.html',{'crops':crops})
+    return render(request,'homepage/showcropoperations.html',{'crops':crops, 'operations':operations})
+
+def Add_crop_operations(request,Cid):
+    crops=get_object_or_404(Crops,Cid=Cid)
+
+    if request.method=='POST':
+        form=Crop_operationsForm(request.POST)
+        if form.is_valid():
+            crop_operation=form.save(commit=False)
+            crop_operation.crops=crops
+            crop_operation.save()
+            return redirect('homepage:show-cropoperations',Cid=crops.Cid)
+    else:
+        form=Crop_operationsForm()
+        return render(request, 'homepage/addcropoperations.html',{'form':form,'crops':crops})
     
 
 #views for the Machinery

@@ -29,7 +29,8 @@ from .views import (
     Add_crop_sales,
     Delete_crop_sales,
     Update_crop_sales,
-    Crop_operations,
+    Show_crop_operations,
+    Add_crop_operations
     
 )
 
@@ -94,5 +95,7 @@ urlpatterns = [
 
     path('update_cropsales/<int:Cid>/<slug:Sale_date>/', Update_crop_sales, name='update-cropsales'),
 
-    path('show_cropoperations/<int:Cid>/', Crop_operations, name='show-cropoperations'),
+    path('show_cropoperations/<int:Cid>/', Show_crop_operations, name='show-cropoperations'),
+
+    path('add_cropoperations/<int:Cid>/', Add_crop_operations, name='add-cropoperations'),
 ]
