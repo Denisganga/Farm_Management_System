@@ -216,6 +216,20 @@ def Delete_crop_operations(request,Cid,Operation_date):
         return redirect('homepage:show-cropoperations',Cid=crop_operations.crops.Cid)
     
     return render(request, 'homepage/deletecropoperations.html',{'crop_operations':crop_operations})
+
+
+def Update_crop_operations(request,Cid,Operation_date):
+    crops= get_object_or_404(Crops,Cid=Cid)
+    crop_operations=get_object_or_404(Crop_operations,crops__Cid=Cid,Operation_date=Operation_date)
+    form  = Crop_operationsForm(request.POST,instance=crop_operations)
+
+    if form.is_valid():
+        form.save()
+
+        return redirect('homepage:show-cropoperations',Cid=crop_operations.crops.Cid)
+    
+    return render(request,'homepage/updatecropoperations.html',{'crops':crops,'crop_operations':crop_operations})
+    
     
     
 
