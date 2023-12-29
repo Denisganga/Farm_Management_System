@@ -208,6 +208,15 @@ def Add_crop_operations(request,Cid):
     else:
         form=Crop_operationsForm()
         return render(request, 'homepage/addcropoperations.html',{'form':form,'crops':crops})
+
+def Delete_crop_operations(request,Cid,Operation_date):
+    crop_operations=get_object_or_404(Crop_operations,crops__Cid=Cid,Operation_date=Operation_date)
+    if request.method=='POST':
+        crop_operations.delete()
+        return redirect('homepage:show-cropoperations',Cid=crop_operations.crops.Cid)
+    
+    return render(request, 'homepage/deletecropoperations.html',{'crop_operations':crop_operations})
+    
     
 
 #views for the Machinery
