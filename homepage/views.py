@@ -281,6 +281,13 @@ def Update_machinery(request,Number_plate):
     
     return render(request, "homepage/updatemachinery.html", {'machinery':machinery})
 
+
+def Show_machinery_activities(request,Number_plate):
+    machinery=get_object_or_404(Machinery,Number_plate=Number_plate)
+    activities=Machinery_activities.objects.filter(machinery=machinery)
+    return render(request, 'homepage/showmachineryactivities.html',{'machinery':machinery,'activities':activities})
+
+
 #view function of the livestock section
 from .livestock_form import LivestockForm,Livestock_productionForm
 from .models import Livestock,Livestock_production

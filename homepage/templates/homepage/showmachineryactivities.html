@@ -1,0 +1,100 @@
+{%extends 'homepage/base.html' %} {% block content %}
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .update-link,
+    .delete-link {
+      display: inline-block;
+      padding: 5px 10px;
+      text-decoration: none;
+      color: #fff;
+      border-radius: 3px;
+      margin-right: 5px;
+    }
+
+    .update-link {
+      background-color: #3498db;
+    }
+
+    .delete-link {
+      background-color: #e74c3c;
+    }
+
+    .add-button {
+      display: inline-block;
+      padding: 10px;
+      background-color: #4caf50;
+      color: white;
+      text-decoration: none;
+      border-radius: 3px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Machinery Activities Details</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Activity Date</th>
+        <th>Activity Type</th>
+        <th>Activity Cost</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for activity in activities %}
+      <tr>
+        <td>{{ activity.Activity_date }}</td>
+        <td>{{ activity.Activity_type }}</td>
+        <td>{{ activity.Activity_cost}}</td>
+        <td>{{ activity.Description }}</td>
+
+        <td>
+          <a href=""class="update-link">Update</a>
+          <a href=""class="delete-link">Delete</a >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a
+    href=""
+    class="add-button">Add a Sale</a>
+</body>
+{%endblock%}

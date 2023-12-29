@@ -54,14 +54,50 @@ body {
     margin-top: 20px;
   }
   
-  .add-button:hover {
-    background-color: #3071a9;
-  }
+  .update-link,
   .delete-link {
-    color: red;
+    display: inline-block;
+    padding: 5px 10px;
     text-decoration: none;
+    color: #fff;
+    border-radius: 3px;
+    margin-right: 5px;
+  }
+
+  .update-link {
+    background-color: #3498db;
+  }
+
+  .delete-link {
+    background-color: #e74c3c;
+  }
+
+  .add-button {
+    display: inline-block;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-top: 20px;
   }
   
+  .expenses-link {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #3498db;
+    color: #3498db;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .expenses-link:hover {
+    background-color: #3498db;
+    color: #fff;
+  }
   
 </style>
 </head>
@@ -76,6 +112,7 @@ body {
                 <th>Purchase Date</th>
                 <th>Operations</th>
                 <th>Maintenance Activities</th>
+                <th>Activities</>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -87,7 +124,13 @@ body {
                 <td>{{ machinery.Purchase_price }}</td>
                 <td>{{ machinery.Purchase_date }}</td>
                 <td>{{ machinery.Operation }}</td>
-                <td>{{ machinery.Maintenance_activities }}</td>  
+                <td>{{ machinery.Maintenance_activities }}</td> 
+                
+                
+                <td>
+                  <a href="{% url 'homepage:show-machineryactivities' Number_plate=machinery.Number_plate %}" class=expenses-link>Activities</a>
+               </td>
+
                 <td>
                 <a href="{% url 'homepage:update-machinery' Number_plate=machinery.Number_plate%}" class="update-link">update</a>
                 <a href="{% url 'homepage:delete-machinery' Number_plate=machinery.Number_plate %}"class="delete-link">Delete</a>
