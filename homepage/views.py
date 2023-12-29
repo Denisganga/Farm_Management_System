@@ -163,7 +163,7 @@ def Add_crop_sales(request,Cid):
         
     else:
         form=Crop_salesForm()
-        return render(request,'homepage/addcropsales.html', {'form':form, 'crops':crops})
+    return render(request,'homepage/addcropsales.html', {'form':form, 'crops':crops})
     
 
 def Delete_crop_sales(request,Cid,Sale_date):
@@ -286,6 +286,22 @@ def Show_machinery_activities(request,Number_plate):
     machinery=get_object_or_404(Machinery,Number_plate=Number_plate)
     activities=Machinery_activities.objects.filter(machinery=machinery)
     return render(request, 'homepage/showmachineryactivities.html',{'machinery':machinery,'activities':activities})
+
+def Add_machinery_activities(request,Number_plate):
+    machinery=get_object_or_404(Machinery,Number_plate=Number_plate)
+
+    if request.method=='POST':
+        form=Machinery_activitesForm(request.POST)
+        if form.is_valid():
+            machinery_activity=form.save(commit=False)
+            machinery_activity.machinery=machinery
+            machinery_activity.save()
+            return redirect('homepage:show-machineryactivities', Number_plate=machinery.Number_plate)
+        
+
+    else:
+        form=Machinery_activitesForm()
+    return render(request, 'homepage/addmachineryactivities.html',{'machinery':machinery,'form':form})
 
 
 #view function of the livestock section
