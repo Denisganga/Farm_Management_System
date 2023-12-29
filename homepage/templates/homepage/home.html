@@ -275,6 +275,68 @@
         bottom: 0;
         width: 100%;
       }
+
+
+
+
+
+
+
+      /* Style for the card container */
+      .card-container {
+        display: flex;
+        flex-wrap: wrap; /* Allow cards to wrap to the next line */
+        justify-content: center;
+      }
+  
+      /* Style for the card */
+      .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+        width: 300px;
+        margin: 16px;
+        padding: 16px;
+        border-radius: 8px;
+        background-color: #fff;
+        text-align: center;
+      }
+  
+      /* Style for the card title */
+      .card h2 {
+        color: #4CAF50; /* Green color for a farm-related theme */
+      }
+  
+      /* Style for the card content */
+      .card p {
+        color: #666;
+      }
+  
+      /* Style for the card links */
+      .card a {
+        display: block;
+        margin-top: 12px;
+        padding: 8px 12px;
+        background-color: #4CAF50;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+  
+      /* Hover effect for the card links */
+      .card a:hover {
+        background-color: #45a049;
+      }
+  
+      /* Hover effect for the card */
+      .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+
+
+
+
     </style>
   </head>
   <body>
@@ -393,6 +455,63 @@
           various activities in your farm
         </p>
       </div>
+
+
+
+  <!-- Cards container -->
+  <div class="card-container">
+
+    <!-- Card 1 -->
+    <div class="card">
+      <h2>Store Management</h2>
+      <p>Manage your farm store efficiently.</p>
+      <a href="#">Go to Store</a>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <h2>Breeding Management</h2>
+      <p>Track and manage your breeding activities.</p>
+      <a href="#">Go to Breeding</a>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <h2>Task Scheduling</h2>
+      <p>Schedule and organize farm tasks.</p>
+      <a href="#">Go to Task Scheduling</a>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+      <h2>Document Management</h2>
+      <p>Manage important farm documents.</p>
+      <a href="#">Go to Documents</a>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card">
+      <h2>Milk production analysis</h2>
+      <p>Keep the trends of your milk production.</p>
+      <a href="#">milk analytics</a>
+
+      
+    </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+          <h2>Eggs production analysis</h2>
+          <p>Keep the trends of your milk production.</p>
+          <a href="#">milk analytics</a>
+    
+          
+        </div>
+
+  </div>
+
+
+
+
     </section>
     <!-- partial -->
     <script>
