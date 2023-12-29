@@ -235,8 +235,8 @@ def Update_crop_operations(request,Cid,Operation_date):
 
 #views for the Machinery
 
-from .models import Machinery
-from .machinery_form import MachineryForm
+from .models import Machinery,Machinery_activities
+from .machinery_form import MachineryForm,Machinery_activitesForm
 
 def Show_machinery(request):
     machinery = Machinery.objects.filter(user=request.user)
