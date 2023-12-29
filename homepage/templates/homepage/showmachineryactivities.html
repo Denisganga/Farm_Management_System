@@ -86,7 +86,7 @@
 
         <td>
           <a href=""class="update-link">Update</a>
-          <a href=""class="delete-link">Delete</a >
+          <a href="{%url 'homepage:delete-machineryactivities' Number_plate=machinery.Number_plate Activity_date=activity.Activity_date|date:'Y-m-d' %}"class="delete-link">Delete</a >
         </td>
       </tr>
       {% endfor %}

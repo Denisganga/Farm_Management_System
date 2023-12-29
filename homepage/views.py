@@ -303,6 +303,14 @@ def Add_machinery_activities(request,Number_plate):
         form=Machinery_activitesForm()
     return render(request, 'homepage/addmachineryactivities.html',{'machinery':machinery,'form':form})
 
+def Delete_machinery_activity(request,Number_plate,Activity_date):
+    machinery_activities=get_object_or_404(Machinery_activities,machinery__Number_plate=Number_plate,Activity_date=Activity_date)
+    if request.method=='POST':
+        machinery_activities.delete()
+        return redirect('homepage:show-machineryactivities',Number_plate=machinery_activities.machinery.Number_plate)
+    
+    return render(request,'homepage/deletemachineryactivities.html',{'machinery_activities':machinery_activities})
+
 
 #view function of the livestock section
 from .livestock_form import LivestockForm,Livestock_productionForm
