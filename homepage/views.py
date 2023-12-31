@@ -235,8 +235,8 @@ def Update_crop_operations(request,Cid,Operation_date):
 
 #views for the Machinery
 
-from .models import Machinery,Machinery_activities
-from .machinery_form import MachineryForm,Machinery_activitesForm
+from .models import Machinery,Machinery_activities,Machinery_maintenance
+from .machinery_form import MachineryForm,Machinery_activitesForm,Machinery_maintenanceForm
 
 def Show_machinery(request):
     machinery = Machinery.objects.filter(user=request.user)
@@ -322,6 +322,11 @@ def Update_machinery_activities(request,Number_plate,Activity_date):
         return redirect('homepage:show-machineryactivities',Number_plate=machinery_activities.machinery.Number_plate)
     
     return render(request,'homepage/updatemachineryactivities.html',{'machinery':machinery,'machinery_activities':machinery_activities})
+
+def Show_machinery_maintenance(request,Number_plate):
+    machinery=get_object_or_404(Machinery,Number_plate=Number_plate)
+    maintenance=Machinery_maintenance.objects.filter(machinery=machinery)
+    return render(request,'homepage/showmachinerymaintenance.html',{'machinery':machinery,'maintenance':maintenance})
 
 
 #view function of the livestock section

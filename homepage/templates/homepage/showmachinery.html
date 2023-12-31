@@ -106,30 +106,40 @@ body {
     <table>
         <thead>
             <tr>
-                <th>Number Plate/ Unique Number</th>
-                <th>Equipment Name</th>
-                <th>Purchase Price</th>
-                <th>Purchase Date</th>
-                <th>Operations</th>
-                <th>Maintenance Activities</th>
-                <th>Activities</>
-                <th>Actions</th>
+              <th>Number Plate/ Unique Number</th>
+              <th>Equipment Name</th>
+              <th>Purchase Price</th>
+              <th>Purchase Date</th>
+              <th>Operations</th>
+              <th>Maintenance Activities</th>
+              <th>Activities</th>
+
+              <th>Maintenance and Repair</th>
+
+              <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for machinery in machinery %}
             <tr>
-                <td>{{ machinery.Number_plate }}</td>
-                <td>{{ machinery.Equipment_name }}</td>
-                <td>{{ machinery.Purchase_price }}</td>
-                <td>{{ machinery.Purchase_date }}</td>
-                <td>{{ machinery.Operation }}</td>
-                <td>{{ machinery.Maintenance_activities }}</td> 
+              <td>{{ machinery.Number_plate }}</td>
+              <td>{{ machinery.Equipment_name }}</td>
+              <td>{{ machinery.Purchase_price }}</td>
+              <td>{{ machinery.Purchase_date }}</td>
+              <td>{{ machinery.Operation }}</td>
+              <td>{{ machinery.Maintenance_activities }}</td> 
                 
                 
                 <td>
                   <a href="{% url 'homepage:show-machineryactivities' Number_plate=machinery.Number_plate %}" class=expenses-link>Activities</a>
                </td>
+
+
+               
+               <td>
+                <a href="{% url 'homepage:show-machinerymaintenance' Number_plate=machinery.Number_plate %}" class=expenses-link>Maintenance and Repair</a>
+             </td>
+
 
                 <td>
                 <a href="{% url 'homepage:update-machinery' Number_plate=machinery.Number_plate%}" class="update-link">update</a>
