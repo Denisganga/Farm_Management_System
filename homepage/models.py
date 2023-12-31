@@ -102,7 +102,6 @@ class Machinery(models.Model):
     Purchase_price= models.DecimalField(max_digits=10,decimal_places=2, default=0)
     Purchase_date = models.DateField()
     Operation=models.TextField(blank=True)
-    Maintenance_activities= models.TextField(blank=True)
 
     class Meta:
         db_table = "Machinery"

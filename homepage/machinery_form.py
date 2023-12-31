@@ -10,7 +10,6 @@ class MachineryForm(forms.ModelForm):
             'Purchase_price',
             'Purchase_date',
             'Operation',
-            'Maintenance_activities'
             
         ]
 
