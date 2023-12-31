@@ -118,6 +118,19 @@ class Machinery_activities(models.Model):
     class meta:
         db_table="Machinery_activities"
 
+class Machinery_maintenance(models.Model):
+    machinery=models.ForeignKey(Machinery,on_delete=models.CASCADE)
+
+    Date= models.DateField(help_text="m/d/y")
+    Machinery_part=models.CharField(max_length=100)
+    Technician_details=models.CharField(max_length=100,blank="True")
+    Cost= models.IntegerField()
+    Description=models.TextField()
+
+    class Meta:
+        db_table="Machinery_activities"
+
+
 class Livestock(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
