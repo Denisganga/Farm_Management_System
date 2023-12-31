@@ -328,6 +328,21 @@ def Show_machinery_maintenance(request,Number_plate):
     maintenance=Machinery_maintenance.objects.filter(machinery=machinery)
     return render(request,'homepage/showmachinerymaintenance.html',{'machinery':machinery,'maintenance':maintenance})
 
+def Add_machinery_maintenance(request,Number_plate):
+    machinery=get_object_or_404(Machinery,Number_plate=Number_plate)
+
+    if request.method=='POST':
+        form=Machinery_maintenanceForm(request.POST)
+        if form.is_valid():
+            machinery_maintenance=form.save(commit=False)
+            machinery_maintenance.machinery=machinery
+            machinery_maintenance.save()
+            return redirect('homepage:show-machinerymaintenance',Number_plate=machinery.Number_plate)
+        
+    else:
+        form=Machinery_maintenanceForm()
+    return render(request, 'homepage/addmachinerymaintenance.html',{'machinery':machinery,'form':form})
+
 
 #view function of the livestock section
 from .livestock_form import LivestockForm,Livestock_productionForm

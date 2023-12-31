@@ -96,7 +96,7 @@
   </table>
 
   <a
-    href=""
-    class="add-button">Add an Activity</a>
+    href="{% url 'homepage:add-machinerymaintenance' Number_plate=machinery.Number_plate %}"
+    class="add-button">Add maintenance or repair</a>
 </body>
 {%endblock%}
