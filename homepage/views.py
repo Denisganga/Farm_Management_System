@@ -343,6 +343,15 @@ def Add_machinery_maintenance(request,Number_plate):
         form=Machinery_maintenanceForm()
     return render(request, 'homepage/addmachinerymaintenance.html',{'machinery':machinery,'form':form})
 
+def Delete_machinery_maintenance(request,Number_plate,Date):
+    machinery_maintenance=get_object_or_404(Machinery_maintenance,machinery__Number_plate=Number_plate,Date=Date)
+    if request.method=='POST':
+        machinery_maintenance.delete()
+        return redirect('homepage:show-machinerymaintenance',Number_plate=machinery_maintenance.machinery.Number_plate)
+    
+    return render(request,'homepage/deletemachinerymaintenance.html',{'machinery_maintenance':machinery_maintenance})
+    
+
 
 #view function of the livestock section
 from .livestock_form import LivestockForm,Livestock_productionForm

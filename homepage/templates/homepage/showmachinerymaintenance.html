@@ -88,7 +88,7 @@
 
         <td>
           <a href=""class="update-link">Update</a>
-          <a href=""class="delete-link">Delete</a >
+          <a href="{%url 'homepage:delete-machinerymaintenance' Number_plate=machinery.Number_plate Date=maintenance.Date|date:'Y-m-d' %}"class="delete-link">Delete</a >
         </td>
       </tr>
       {% endfor %}
