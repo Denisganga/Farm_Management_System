@@ -350,6 +350,18 @@ def Delete_machinery_maintenance(request,Number_plate,Date):
         return redirect('homepage:show-machinerymaintenance',Number_plate=machinery_maintenance.machinery.Number_plate)
     
     return render(request,'homepage/deletemachinerymaintenance.html',{'machinery_maintenance':machinery_maintenance})
+
+
+def Update_machinery_maintenance(request,Number_plate,Date):
+    machinery=get_object_or_404(Machinery,Number_plate=Number_plate)
+    machinery_maintenance=get_object_or_404(Machinery_maintenance,machinery__Number_plate=Number_plate,Date=Date)
+    form=Machinery_maintenanceForm(request.POST,instance=machinery_maintenance)
+
+    if form.is_valid():
+        form.save()
+        return redirect('homepage:show-machinerymaintenance',Number_plate=machinery_maintenance.machinery.Number_plate)
+    
+    return render(request,'homepage/updatemachinerymaintenance.html',{'machinery':machinery,'machinery_maintenance':machinery_maintenance})
     
 
 

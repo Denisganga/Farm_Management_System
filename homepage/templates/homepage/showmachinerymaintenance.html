@@ -87,7 +87,7 @@
         <td>{{ maintenance.Description }}</td>
 
         <td>
-          <a href=""class="update-link">Update</a>
+          <a href="{%url 'homepage:update-machinerymaintenance' Number_plate=machinery.Number_plate Date=maintenance.Date|date:'Y-m-d' %}"class="update-link">Update</a>
           <a href="{%url 'homepage:delete-machinerymaintenance' Number_plate=machinery.Number_plate Date=maintenance.Date|date:'Y-m-d' %}"class="delete-link">Delete</a >
         </td>
       </tr>
