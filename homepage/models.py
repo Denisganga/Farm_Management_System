@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from decimal import Decimal
+from django.core.validators import MaxValueValidator,MinValueValidator
 
 # Create your models here.
 
@@ -152,5 +153,17 @@ class Livestock_production(models.Model):
 
     class Meta:
         db_table="Livestock_production"
+
+class Milk_production(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE, default=1)
+
+    Day=models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(31)])
+    Livestock_number=models.IntegerField()
+    Morning_production=models.DecimalField(max_digits=10,decimal_places=2,help_text='production in litres')
+    Midday_production=models.DecimalField(max_digits=10,decimal_places=2,help_text='production in litres', blank=True)
+    Evening_production=models.DecimalField(max_digits=10,decimal_places=2,help_text='production in litres',blank=True)
+    Morning_consumption=models.DecimalField(max_digits=10,decimal_places=2,help_text='feed consumed in kg')
+    Evening_consumption=models.DecimalField(max_digits=10,decimal_places=2,help_text='feed consumed in kg',blank=True)
+
 
 
