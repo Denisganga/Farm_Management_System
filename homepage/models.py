@@ -162,8 +162,28 @@ class Milk_production(models.Model):
     Morning_production=models.DecimalField(max_digits=10,decimal_places=2,help_text='production in litres')
     Midday_production=models.DecimalField(max_digits=10,decimal_places=2,help_text='production in litres', blank=True)
     Evening_production=models.DecimalField(max_digits=10,decimal_places=2,help_text='production in litres',blank=True)
+    Total_production=models.DecimalField(max_digits=10,decimal_places=2,default=0,editable=False)
+
     Morning_consumption=models.DecimalField(max_digits=10,decimal_places=2,help_text='feed consumed in kg')
     Evening_consumption=models.DecimalField(max_digits=10,decimal_places=2,help_text='feed consumed in kg',blank=True)
+    Total_consumption=models.DecimalField(max_digits=10,decimal_places=2,default=0,editable=False)
+
+
+    def save(self,*args,**kwargs):
+        morning_production=float(self.Morning_production)
+        midday_production=float(self.Midday_production)
+        evening_production=float(self.Evening_production)
+
+        self.Total_production=Decimal(morning_production+midday_production+evening_production)
+
+        morning_consumption=float(self.Morning_consumption)
+        evening_consumption=float(self.Evening_consumption)
+
+        self.Total_consumption=Decimal(morning_consumption+evening_consumption)
+
+        super().save(*args,**kwargs)
+
+
 
 
 
