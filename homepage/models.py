@@ -169,6 +169,13 @@ class Milk_production(models.Model):
     Total_consumption=models.DecimalField(max_digits=10,decimal_places=2,default=0,editable=False)
 
 
+    def Year(self):
+        self.Date.Year
+
+    def Month(self):
+        self.Date.Month
+
+
     def save(self,*args,**kwargs):
         morning_production=float(self.Morning_production)
         midday_production=float(self.Midday_production)
