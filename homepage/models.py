@@ -157,7 +157,11 @@ class Livestock_production(models.Model):
 class Milk_production(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE, default=1)
 
+
+    Year=models.IntegerField(validators=[MinValueValidator(1)])
+    Month=models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(12)])
     Day=models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(31)])
+
     Livestock_number=models.IntegerField()
     Morning_production=models.DecimalField(max_digits=10,decimal_places=2,help_text='production in litres')
     Midday_production=models.DecimalField(max_digits=10,decimal_places=2,help_text='production in litres', blank=True)
@@ -167,14 +171,6 @@ class Milk_production(models.Model):
     Morning_consumption=models.DecimalField(max_digits=10,decimal_places=2,help_text='feed consumed in kg')
     Evening_consumption=models.DecimalField(max_digits=10,decimal_places=2,help_text='feed consumed in kg',blank=True)
     Total_consumption=models.DecimalField(max_digits=10,decimal_places=2,default=0,editable=False)
-
-
-    def Year(self):
-        self.Date.Year
-
-    def Month(self):
-        self.Date.Month
-
 
     def save(self,*args,**kwargs):
         morning_production=float(self.Morning_production)

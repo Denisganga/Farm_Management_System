@@ -29,6 +29,8 @@ class Milk_productionForm(forms.ModelForm):
         model=Milk_production
 
         fields=[
+            'Year',
+            'Month',
             'Day',
             'Livestock_number',
             'Morning_production',
