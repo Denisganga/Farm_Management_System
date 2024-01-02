@@ -44,6 +44,7 @@ from .views import (
 
     Select_year_month,
     Milk_production_by_month,
+    Add_milk_production_by_month
     
 )
 
@@ -134,5 +135,7 @@ urlpatterns = [
 
     path('select_yearmonth/', Select_year_month, name='select-yearmonth'),
 
-    path('milk_productionbymonth/<int:selected_year>/<int:selected_month>/', Milk_production_by_month, name='milk-productionbymonth')
+    path('milk_productionbymonth/<int:selected_year>/<int:selected_month>/', Milk_production_by_month, name='milk-productionbymonth'),
+
+    path('add_milkproductionbymonth/<int:selected_year>/<int:selected_month>/', Add_milk_production_by_month, name='add-milkproductionbymonth')
 ]

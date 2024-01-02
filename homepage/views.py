@@ -366,7 +366,7 @@ def Update_machinery_maintenance(request,Number_plate,Date):
 
 
 #view function of the livestock section
-from .livestock_form import LivestockForm,Livestock_productionForm
+from .livestock_form import LivestockForm,Livestock_productionForm,Milk_productionForm
 from .models import Livestock,Livestock_production,Milk_production
 from django.shortcuts import render, get_object_or_404
 
@@ -469,14 +469,33 @@ def Select_year_month(request):
     return render(request,'homepage/selectyearmonth.html')
 
 def Milk_production_by_month(request,selected_year,selected_month):
+    milk_production_records = None
     if request.method=='POST':
+        
         selected_year=request.POST.get('Year')
         selected_month=request.POST.get('Month')
 
         #Fetching milk production by the year and month selected
-
+          
         milk_production_records=Milk_production.objects.filter(Year=selected_year,Month=selected_month)
 
-    milk_production_records = None
+
+
+    
 
     return render(request,'homepage/milkproductionbymonth.html',{'selected_year':selected_year,'selected_month':selected_month,'milk_production_records':milk_production_records})
+
+def Add_milk_production_by_month(request,selected_year,selected_month):
+    if request.method=='POST':
+        form=Milk_productionForm(request.POST)
+        if form.is_valid():
+            production=form.save(commit=False)
+            production.Year=selected_year
+            production.Month=selected_month
+            production.save()
+            return redirect('homepage:milk-productionbymonth',selected_year=selected_year,selected_month=selected_month)
+
+    else:
+        form=Milk_productionForm()
+
+    return render(request,'homepage/addmilkproduction.html',{'form':form,'selected_year':selected_year,'selected_month':selected_month})
