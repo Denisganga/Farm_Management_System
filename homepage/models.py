@@ -158,9 +158,9 @@ class Milk_production(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE, default=1)
 
 
-    Year=models.IntegerField(validators=[MinValueValidator(1)])
-    Month=models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(12)])
-    Day=models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(31)])
+    Year=models.IntegerField(validators=[MinValueValidator(1)], default=2024)
+    Month=models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(12)],default=1)
+    Day=models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(31)],default=1)
 
     Livestock_number=models.IntegerField()
     Morning_production=models.DecimalField(max_digits=10,decimal_places=2,help_text='production in litres')
