@@ -19,7 +19,7 @@
             text-align: center;
         }
 
-        h2 {
+        h1 {
             color: #333333;
         }
 
@@ -43,9 +43,10 @@
 </head>
 <body>
     <div class="card">
-        <h2>Milk Production</h2>
-        <form>
-            <select id="year" name="year">
+        <h1>Milk Production</h1>
+        <form method="post" action="{% url 'homepage:select-yearmonth' %}">
+            {% csrf_token %}
+            <select id="Year" name="Year">
                 <option value="2024">2024</option>
                 <option value="2023">2025</option>
                 <option value="2022">2026</option>
@@ -68,7 +69,7 @@
                 <option value="2022">2043</option>
                 
             </select>
-            <select id="month" name="month">
+            <select id="Month" name="Month">
                 <option value="01">January</option>
                 <option value="02">February</option>
                 <option value="03">April</option>

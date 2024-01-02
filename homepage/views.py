@@ -463,7 +463,20 @@ def Update_livestock_production(request,Tag_number,Production_date):
 
 def Select_year_month(request):
     if request.method=='POST':
-        selected_year= request.POST.get('year')
-        selected_month=request.POST.get('month')
-
+        selected_year=request.POST.get('Year')
+        selected_month=request.POST.get('Month')
+        return redirect('homepage:milk-productionbymonth',selected_year=selected_year,selected_month=selected_month)
     return render(request,'homepage/selectyearmonth.html')
+
+def Milk_production_by_month(request,selected_year,selected_month):
+    if request.method=='POST':
+        selected_year=request.POST.get('Year')
+        selected_month=request.POST.get('Month')
+
+        #Fetching milk production by the year and month selected
+
+        milk_production_records=Milk_production.objects.filter(Year=selected_year,Month=selected_month)
+
+    milk_production_records = None
+
+    return render(request,'homepage/milkproductionbymonth.html',{'selected_year':selected_year,'selected_month':selected_month,'milk_production_records':milk_production_records})

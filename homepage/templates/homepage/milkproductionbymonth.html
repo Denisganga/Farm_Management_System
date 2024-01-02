@@ -1,0 +1,112 @@
+{%extends 'homepage/base.html'%}
+{%block content%}
+<head>
+    <title>Milk Production</title>
+<style>
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+  
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+  
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+  
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+  
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+  
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+  
+      .update-link,
+      .delete-link {
+        display: inline-block;
+        padding: 5px 10px;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 3px;
+        margin-right: 5px;
+      }
+  
+      .update-link {
+        background-color: #3498db;
+      }
+  
+      .delete-link {
+        background-color: #e74c3c;
+      }
+  
+      .add-button {
+        display: inline-block;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        text-decoration: none;
+        border-radius: 3px;
+        margin-top: 20px;
+      }
+  
+</style>
+</head>
+<body>
+    <h1>Milk production for the year {{selected_year}} and the {{selected_month}} month </h1>
+    <table>
+        <thead>
+            <tr>
+
+              <th>Day</th>
+              <th>Number of Animals</th>
+              <th>Morning Production</th>
+              <th>Midday Production</th>
+              <th>Evening Production</th>
+              <th>Total Production</th>
+              <th>Morning Consumption</th>
+              <th>Evening Consumption</th>
+              <th>Total Consumption</th>
+              <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in milk_production_records %}
+            <tr>
+              <td>{{ record.Day }}</td>
+              <td>{{ record.Livestock_number }}</td>
+              <td>{{ record.Morning_production }}</td>
+              <td>{{ record.Midday_production }}</td>
+              <td>{{ record.Evening_production }}</td>
+              <td>{{ record.Total_production}}</td>
+              <td>{{ record.Morning_consumption}}</td>
+              <td>{{ record.Evening_consumption}}</td>
+              <td>{{ record.Total_consumption}}</td>
+
+                <td>
+                <a href="" class="update-link">update</a>
+                <a href=""class="delete-link">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="" class="add-button">Add</a>
+</body>
+{%endblock%}

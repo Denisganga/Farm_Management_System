@@ -43,6 +43,7 @@ from .views import (
     Update_machinery_maintenance,
 
     Select_year_month,
+    Milk_production_by_month,
     
 )
 
@@ -131,5 +132,7 @@ urlpatterns = [
 
     path('update_machinerymaintenance/<str:Number_plate>/<slug:Date>/', Update_machinery_maintenance, name='update-machinerymaintenance'),
 
-    path('select_yearmonth/', Select_year_month, name='select-yearmonth')
+    path('select_yearmonth/', Select_year_month, name='select-yearmonth'),
+
+    path('milk_productionbymonth/<int:selected_year>/<int:selected_month>/', Milk_production_by_month, name='milk-productionbymonth')
 ]
