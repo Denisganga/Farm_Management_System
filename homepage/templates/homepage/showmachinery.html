@@ -4,53 +4,65 @@
     <title>Show Machinery</title>
 <style>
 
-    /* Body */
-body {
+  body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
-    padding: 20px;
-    background: antiquewhite
+    padding: 0;
   }
-  
-  /* Heading */
+
   h1 {
     color: #333;
     text-align: center;
   }
-  
-  /* Table */
+
   table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
   }
-  
-  table th,
-  table td {
+
+  th,
+  td {
+    border: 1px solid #ddd;
     padding: 10px;
-    border: 1px solid #ccc;
-  }
-  
-  /* Table Head */
-  table thead th {
-    background-color: #f0f0f0;
-    font-weight: bold;
     text-align: left;
   }
-  
-  /* Table Body */
-  table tbody td {
-    text-align: left;
+
+  th {
+    background-color: #4caf50;
+    color: white;
   }
-  
-  /* Add Button */
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  .update-link,
+  .delete-link {
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 3px;
+    margin-right: 5px;
+  }
+
+  .update-link {
+    background-color: #3498db;
+  }
+
+  .delete-link {
+    background-color: #e74c3c;
+  }
+
   .add-button {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #428bca;
-    color: #fff;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 3px;
     margin-top: 20px;
   }
   
