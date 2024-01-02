@@ -40,7 +40,9 @@ from .views import (
     Show_machinery_maintenance,
     Add_machinery_maintenance,
     Delete_machinery_maintenance,
-    Update_machinery_maintenance
+    Update_machinery_maintenance,
+
+    Select_year_month,
     
 )
 
@@ -127,5 +129,7 @@ urlpatterns = [
 
     path('delete_machinerymaintenance/<str:Number_plate>/<slug:Date>/', Delete_machinery_maintenance,name='delete-machinerymaintenance'),
 
-    path('update_machinerymaintenance/<str:Number_plate>/<slug:Date>/', Update_machinery_maintenance, name='update-machinerymaintenance')
+    path('update_machinerymaintenance/<str:Number_plate>/<slug:Date>/', Update_machinery_maintenance, name='update-machinerymaintenance'),
+
+    path('select_yearmonth/', Select_year_month, name='select-yearmonth')
 ]

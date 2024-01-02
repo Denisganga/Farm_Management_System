@@ -367,7 +367,7 @@ def Update_machinery_maintenance(request,Number_plate,Date):
 
 #view function of the livestock section
 from .livestock_form import LivestockForm,Livestock_productionForm
-from .models import Livestock,Livestock_production
+from .models import Livestock,Livestock_production,Milk_production
 from django.shortcuts import render, get_object_or_404
 
 def Show_livestock(request):
@@ -456,3 +456,14 @@ def Update_livestock_production(request,Tag_number,Production_date):
         print(form.errors)
 
     return render(request,'homepage/updatelivestockproduction.html',{'livestock':livestock, 'livestock_production':livestock_production})
+
+
+
+# the milk production section in the dashboard
+
+def Select_year_month(request):
+    if request.method=='POST':
+        selected_year= request.POST.get('year')
+        selected_month=request.POST.get('month')
+
+    return render(request,'homepage/selectyearmonth.html')
