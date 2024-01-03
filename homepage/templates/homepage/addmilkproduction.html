@@ -14,8 +14,10 @@
         
         h1 {
             text-align: center;
-            color: #333;
+            color: black;
         }
+
+
         
         form {
             background-color: #fff;
@@ -62,7 +64,7 @@
     </style>
 </head>
 <body>
-  <h2>Add Milk Production for {{ selected_month }} {{ selected_year }}</h2>
+  <h1>Add Milk Production for the month {{ selected_month }}  and the Year {{ selected_year }}</h1>
   
   <form method="post" action="">
     {% csrf_token %}
