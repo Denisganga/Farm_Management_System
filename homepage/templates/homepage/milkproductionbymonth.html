@@ -101,7 +101,7 @@
 
                 <td>
                 <a href="" class="update-link">update</a>
-                <a href=""class="delete-link">Delete</a>
+                <a href="{% url 'homepage:delete-milkproductionbymonth' selected_year=selected_year selected_month=selected_month Day=record.Day%}"class="delete-link">Delete</a>
                 </td>
             </tr>
             {% endfor %}

@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete Milk Production</title>
+<style>
+        
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .delete-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+  
+  p {
+    margin-bottom: 20px;
+  }
+  
+  .delete-button {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cancel-link {
+    margin-left: 10px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .delete-button:hover,
+  .cancel-link:hover {
+    opacity: 0.8;
+  }
+</style>
+</head>
+<body>
+  <div class="delete-container">
+    <h1>Delete Production</h1>
+    <p>Are you sure you want to delete this production?</p>
+    <form method="post">
+      {% csrf_token %}
+      <input class="delete-button" type="submit" value="Delete">
+      <a class="cancel-link" href="{% url 'homepage:milk-productionbymonth' selected_year=record.Year selected_month=record.Month %}">Cancel</a>
+    </form>
+  </div>
+</body>
+</html>
