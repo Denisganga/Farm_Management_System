@@ -469,21 +469,15 @@ def Select_year_month(request):
     return render(request,'homepage/selectyearmonth.html')
 
 def Milk_production_by_month(request,selected_year,selected_month):
-    milk_production_records = None
-    if request.method=='POST':
-        
-        selected_year=request.POST.get('Year')
-        selected_month=request.POST.get('Month')
 
         #Fetching milk production by the year and month selected
           
         milk_production_records=Milk_production.objects.filter(Year=selected_year,Month=selected_month)
 
 
-
     
 
-    return render(request,'homepage/milkproductionbymonth.html',{'selected_year':selected_year,'selected_month':selected_month,'milk_production_records':milk_production_records})
+        return render(request,'homepage/milkproductionbymonth.html',{'selected_year':selected_year,'selected_month':selected_month,'milk_production_records':milk_production_records})
 
 def Add_milk_production_by_month(request,selected_year,selected_month):
     if request.method=='POST':
