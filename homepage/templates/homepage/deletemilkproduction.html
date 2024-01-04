@@ -58,7 +58,7 @@ body {
     <form method="post">
       {% csrf_token %}
       <input class="delete-button" type="submit" value="Delete">
-      <a class="cancel-link" href="{% url 'homepage:milk-productionbymonth' selected_year=record.Year selected_month=record.Month %}">Cancel</a>
+      <a class="cancel-link" href="{% url 'homepage:milk-productionbymonth' selected_year=selected_year selected_month=selected_month %}">Cancel</a>
     </form>
   </div>
 </body>

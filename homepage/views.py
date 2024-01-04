@@ -500,6 +500,6 @@ def Delete_milk_production_by_month(request,selected_year,selected_month,Day):
     milk_production_records=get_object_or_404(Milk_production,Day=Day)
     if request.method=='POST':
         milk_production_records.delete()
-        return redirect('homepage:Milk_production_by_month', selected_year=selected_year,selected_month=selected_month)
+        return redirect('homepage:milk-productionbymonth', selected_year=selected_year,selected_month=selected_month)
     
-    return render(request, 'homepage/deletemilkproduction.html', {'milk_production_records':milk_production_records})
+    return render(request, 'homepage/deletemilkproduction.html', {'milk_production_records':milk_production_records,'selected_year':selected_year,'selected_month':selected_month})
