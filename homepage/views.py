@@ -503,3 +503,16 @@ def Delete_milk_production_by_month(request,selected_year,selected_month,Day):
         return redirect('homepage:milk-productionbymonth', selected_year=selected_year,selected_month=selected_month)
     
     return render(request, 'homepage/deletemilkproduction.html', {'milk_production_records':milk_production_records,'selected_year':selected_year,'selected_month':selected_month})
+
+def Update_milk_production_by_month(request,selected_year,selected_month,Day):
+    milk_production_record=get_object_or_404(Milk_production,Day=Day)
+    form=Milk_productionForm(request.POST,instance=milk_production_record)
+
+    if form.is_valid():
+        form.save()
+        return redirect('homepage:milk-productionbymonth', selected_year=selected_year,selected_month=selected_month)
+    
+    else:
+        print(form.errors)
+
+    return render(request,'homepage/deletemilkproduction.html',{'milk_production_record':milk_production_record, 'form':form, 'selected_year':selected_year,'selected_month':selected_month})
