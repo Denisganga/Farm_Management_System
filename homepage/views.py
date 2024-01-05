@@ -515,4 +515,4 @@ def Update_milk_production_by_month(request,selected_year,selected_month,Day):
     else:
         print(form.errors)
 
-    return render(request,'homepage/deletemilkproduction.html',{'milk_production_record':milk_production_record, 'selected_year':selected_year,'selected_month':selected_month})
+    return render(request,'homepage/updatemilkproduction.html',{'milk_production_record':milk_production_record, 'selected_year':selected_year,'selected_month':selected_month})

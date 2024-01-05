@@ -1,0 +1,92 @@
+{%extends 'homepage/base.html'%}
+{%block content%}
+<head>
+    <title>update Milk Production</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    </head>
+    <body>
+      <h1>Update Milk production</h1>
+      <form method="post">
+        {% csrf_token %}
+    
+
+        <label for="id_Day">Day:</label>
+        <input type="number" name="Day" id="id_Day" value="{{milk_production_records.Day}}" required>
+    
+        <label for="id_Livestock_number">Livestock Number:</label>
+        <input type="number" name="Livestock_number" id="id_Livestock_number" value="{{ milk_production_record.Livestock_number }}" required>
+
+        <label for="id_Morning_production">Morning Production:</label>
+        <input type="number" name="Morning_production" id="id_Morning_production" value="{{ milk_production_record.Morning_production}}" required>
+
+        <label for="id_Midday_production">Midday Production:</label>
+        <input type="number" name="Midday_production" id="id_Midday_production" value="{{milk_production_record.Midday_production  }}" >
+
+        <label for="id_Evening_production">Evening  Production:</label>
+        <input type="number" name="Evening_production" id="id_Evening_production" value="{{milk_production_record.Evening_production  }}" >
+
+        <label for="id_Morning_consumption">Morning Consumption:</label>
+        <input type="number" name="Morning_consumption" id="id_Morning_consumption" value="{{milk_production_record.Morning_consumption  }}" required >
+
+        <label for="id_Evening_consumption">Evening Consumption:</label>
+        <input type="number" name="Evening_consumption" id="id_Evening_consumption" value="{{milk_production_record.Evening_consumption  }}" >
+
+
+        <input type="submit" value="Update">
+      </form>
+    </body>
+    {%endblock%}

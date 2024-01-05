@@ -143,5 +143,5 @@ urlpatterns = [
 
     path('delete_milkproductionbymonth/<int:selected_year>/<int:selected_month>/<int:Day>/', Delete_milk_production_by_month,name='delete-milkproductionbymonth'),
 
-    path('update_milkproductionbymonth/<int:selceted_year>/<int:selected_month>/<int:Day>/', Update_milk_production_by_month,name='update-milkproductionbymonth')
+    path('update_milkproductionbymonth/<int:selected_year>/<int:selected_month>/<int:Day>/', Update_milk_production_by_month,name='update-milkproductionbymonth')
 ]
