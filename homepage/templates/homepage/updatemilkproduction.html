@@ -63,6 +63,12 @@
       <form method="post">
         {% csrf_token %}
     
+        <label for="id_Year">Year:</label>
+        <input type="number" name="Year" id="id_Year" placeholder= {{selected_year}}  value="{{milk_production_records.Year}}" required>
+
+        <label for="id_Month">Month:</label>
+        <input type="number" name="Month" id="id_Month" placeholder= {{selected_month}} value="{{milk_production_records.Month}}" required>
+
 
         <label for="id_Day">Day:</label>
         <input type="number" name="Day" id="id_Day" value="{{milk_production_records.Day}}" required>
