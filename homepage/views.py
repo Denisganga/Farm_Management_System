@@ -468,16 +468,44 @@ def Select_year_month(request):
         return redirect('homepage:milk-productionbymonth',selected_year=selected_year,selected_month=selected_month)
     return render(request,'homepage/selectyearmonth.html')
 
-def Milk_production_by_month(request,selected_year,selected_month):
+# views.py
 
-        #Fetching milk production by the year and month selected
-          
-        milk_production_records=Milk_production.objects.filter(Year=selected_year,Month=selected_month)
+from django.shortcuts import render
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
 
+def Milk_production_by_month(request, selected_year, selected_month):
+    # Fetching milk production by the year and month selected
+    milk_production_records = Milk_production.objects.filter(Year=selected_year, Month=selected_month)
 
-    
+    # Prepare data for the bar graph
+    days = [record.Day for record in milk_production_records]
+    total_consumption = [record.Total_consumption for record in milk_production_records]
 
-        return render(request,'homepage/milkproductionbymonth.html',{'selected_year':selected_year,'selected_month':selected_month,'milk_production_records':milk_production_records})
+    # Create a bar graph
+    plt.bar(days, total_consumption, color='green')  # You can customize the color
+
+    # Save the plot to a BytesIO object
+    image_stream = BytesIO()
+    plt.savefig(image_stream, format='png')
+    image_stream.seek(0)
+    image_base64 = base64.b64encode(image_stream.read()).decode('utf-8')
+
+    # Close the plot to free up resources
+    plt.close()
+
+    return render(
+        request,
+        'homepage/milkproductionbymonth.html',
+        {
+            'selected_year': selected_year,
+            'selected_month': selected_month,
+            'milk_production_records': milk_production_records,
+            'bar_chart_image': image_base64,
+        }
+    )
+
 
 def Add_milk_production_by_month(request,selected_year,selected_month):
     if request.method=='POST':

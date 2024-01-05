@@ -65,11 +65,21 @@
         border-radius: 3px;
         margin-top: 20px;
       }
+
+      #chart-container {
+        margin-top: 20px;
+    }
   
 </style>
 </head>
 <body>
     <h1>Milk production for the year {{selected_year}} and the {{selected_month}} month </h1>
+
+    <div>
+      <h4>Bar Graph: Total Consumption vs Day</h4>
+      <img src="data:image/png;base64,{{ bar_chart_image }}" alt="Bar Graph">
+  </div>
+
     <table>
         <thead>
             <tr>
@@ -109,5 +119,6 @@
     </table>
     <a href="{% url 'homepage:add-milkproductionbymonth' selected_year=selected_year selected_month=selected_month %}" class="add-button">Add</a>
     
+
 </body>
 {%endblock%}
