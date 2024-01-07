@@ -479,12 +479,12 @@ def Milk_production_by_month(request, selected_year, selected_month):
     # Fetching milk production by the year and month selected
     milk_production_records = Milk_production.objects.filter(Year=selected_year, Month=selected_month)
 
-    # Prepare data for the bar graph
+    # Prepare data for the bar graph of total consumption vs day
     days = [record.Day for record in milk_production_records]
     total_consumption = [record.Total_consumption for record in milk_production_records]
 
     # Create a bar graph
-    plt.bar(days, total_consumption, color='green')  # You can customize the color
+    plt.bar(days, total_consumption, color='green') 
 
     # Save the plot to a BytesIO object
     image_stream = BytesIO()
@@ -493,6 +493,23 @@ def Milk_production_by_month(request, selected_year, selected_month):
     image_base64 = base64.b64encode(image_stream.read()).decode('utf-8')
 
     # Close the plot to free up resources
+    plt.close()
+
+
+    #prepare data for the graph of milkproduction vs day
+
+    days=[record.Day for record in milk_production_records]
+    total_production=[record.Total_production for record in milk_production_records]
+
+    #creating a bar graph for the data visualization
+    plt.bar(days,total_production,color='blue')
+
+    #save the image into a BytesIO object
+    image_stream=BytesIO()
+    plt.savefig(image_stream, format='png')
+    image_stream.seek(0)
+    image_base64.b64encode(image_stream.read()).decode('utf-8')
+
     plt.close()
 
     return render(
