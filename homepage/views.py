@@ -469,8 +469,8 @@ def Select_year_month(request):
     return render(request,'homepage/selectyearmonth.html')
 
 # views.py
-
-from django.shortcuts import render
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
@@ -483,45 +483,49 @@ def Milk_production_by_month(request, selected_year, selected_month):
     days = [record.Day for record in milk_production_records]
     total_consumption = [record.Total_consumption for record in milk_production_records]
 
-    # Create a bar graph
-    plt.bar(days, total_consumption, color='green') 
-
+    # Create a bar graph for Total Consumption vs Day
+    plt.figure(figsize=(12, 6))
+    plt.bar(days, total_consumption, color='green')
+    plt.title('Total Consumption vs Day')
+    plt.xlabel('Day')
+    plt.ylabel('Total Consumption')
+    
     # Save the plot to a BytesIO object
-    image_stream = BytesIO()
-    plt.savefig(image_stream, format='png')
-    image_stream.seek(0)
-    image_base64 = base64.b64encode(image_stream.read()).decode('utf-8')
+    image_stream_consumption = BytesIO()
+    plt.savefig(image_stream_consumption, format='png')
+    image_stream_consumption.seek(0)
+    image_base64_consumption = base64.b64encode(image_stream_consumption.read()).decode('utf-8')
 
     # Close the plot to free up resources
     plt.close()
 
+    # Prepare data for the bar graph of milk production vs day
+    total_production = [record.Total_production for record in milk_production_records]
 
-    #prepare data for the graph of milkproduction vs day
+    # Create a bar graph for Milk Production vs Day
+    plt.figure(figsize=(12, 6))
+    plt.bar(days, total_production, color='blue')
+    plt.title('Milk Production vs Day')
+    plt.xlabel('Day')
+    plt.ylabel('Milk Production')
 
-    days=[record.Day for record in milk_production_records]
-    total_production=[record.Total_production for record in milk_production_records]
+    # Save the plot to a BytesIO object
+    image_stream_production = BytesIO()
+    plt.savefig(image_stream_production, format='png')
+    image_stream_production.seek(0)
+    image_base64_production = base64.b64encode(image_stream_production.read()).decode('utf-8')
 
-    #creating a bar graph for the data visualization
-    plt.bar(days,total_production,color='blue')
-
-    #save the image into a BytesIO object
-    image_stream=BytesIO()
-    plt.savefig(image_stream, format='png')
-    image_stream.seek(0)
-    image_base64.b64encode(image_stream.read()).decode('utf-8')
-
+    # Close the plot to free up resources
     plt.close()
 
-    return render(
-        request,
-        'homepage/milkproductionbymonth.html',
-        {
-            'selected_year': selected_year,
-            'selected_month': selected_month,
-            'milk_production_records': milk_production_records,
-            'bar_chart_image': image_base64,
-        }
-    )
+    # Pass both base64-encoded images to the template
+    return render(request, 'homepage/milkproductionbymonth.html', {
+        'selected_year': selected_year,
+        'selected_month': selected_month,
+        'image_base64_consumption': image_base64_consumption,
+        'image_base64_production': image_base64_production,
+        'milk_production_records': milk_production_records,
+    })
 
 
 def Add_milk_production_by_month(request,selected_year,selected_month):
