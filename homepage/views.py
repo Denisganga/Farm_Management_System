@@ -470,10 +470,10 @@ def Select_year_month(request):
 
 # views.py
 import matplotlib
-matplotlib.use('Agg')
+matplotlib.use('Agg') #rendering the graphs that does not use tikinter in order to remove the tikinter error
 import matplotlib.pyplot as plt
-from io import BytesIO
-import base64
+from io import BytesIO # create an in-memory buffer to temporarily store the binary data of the generated plots.
+import base64 # encode the binary data of the plots into Base64 format(Base64 encoding used to convert binary data into  such as images, into a text-based format that can be easily embedded in HTML)
 
 def Milk_production_by_month(request, selected_year, selected_month):
     # Fetching milk production by the year and month selected
