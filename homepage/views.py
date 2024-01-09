@@ -572,5 +572,5 @@ def Select_year_month_egg(request):
         selected_year=request.POST.get('Year')
         selected_month=request.POST.get('Month')
         
-    return render('homepage/selctingyearandmonth.html' )
+    return render(request,'homepage/selectingyearandmonth.html' )
 
