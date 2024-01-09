@@ -187,6 +187,36 @@ class Milk_production(models.Model):
         super().save(*args,**kwargs)
 
 
+class Eggs_production(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE, default=1)
+
+    Year =models.IntegerField(validators=[MinValueValidator(1)])
+    Month = models.IntegerField(validators= [MinValueValidator(1), MaxValueValidator(12)])
+    Day = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(31)])
+    Morning_egg_collection=models.DecimalField(max_digits=10,decimal_places=2,help_text='total number of eggs collected')
+    Midday_egg_collection=models.DecimalField(max_digits=10,decimal_places=2,help_text='total number of eggs collected', blank=True)
+    Evening_egg_collection=models.DecimalField(max_digits=10,decimal_places=2,help_text='total number of eggs collected',blank=True)
+    Total_egg_collection=models.DecimalField(max_digits=10,decimal_places=2,default=0,editable=False)
+
+    Morning_feeds=models.DecimalField(max_digits=10,decimal_places=2,help_text='feed consumed in kg')
+    Evening_feeds=models.DecimalField(max_digits=10,decimal_places=2,help_text='feed consumed in kg',blank=True)
+    Total_feeds=models.DecimalField(max_digits=10,decimal_places=2,default=0,editable=False)
+
+    def save(self,*args, **kwargs):
+        morning_egg_collection=float(self.Morning_egg_collection)
+        midday_egg_collection=float(self.Midday_egg_collection)
+        evening_egg_collection=float(self.Evening_egg_collection)
+
+        self.Total_egg_collection=Decimal(morning_egg_collection+midday_egg_collection+evening_egg_collection)
+
+        morning_feeds=float(self.Morning_feeds)
+        evening_feeds=float(self.Evening_feeds)
+
+        self.Total_feeds=Decimal(morning_feeds+evening_feeds)
+        
+        super().save(*args, **kwargs)
+
+
 
 
 
