@@ -1,5 +1,5 @@
 from django import forms 
-from .models import Livestock, Livestock_production,Milk_production
+from .models import Livestock, Livestock_production,Milk_production,Eggs_production
 
 class LivestockForm(forms.ModelForm):
     class Meta:
@@ -38,4 +38,21 @@ class Milk_productionForm(forms.ModelForm):
             'Evening_production',
             'Morning_consumption',
             'Evening_consumption'
+        ]
+
+class Egg_productionForm(forms.ModelForm):
+    class Meta:
+        model=Eggs_production
+
+        fields=[
+            'Year',
+            'Month',
+            'Day',
+            'Poultry_number',
+            'Morning_egg_collection',
+            'Midday_egg_collection',
+            'Evening_egg_collection',
+            'Morning_feeds',
+            'Evening_feeds',
+            'Comments'
         ]

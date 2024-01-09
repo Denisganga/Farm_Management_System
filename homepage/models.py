@@ -193,6 +193,8 @@ class Eggs_production(models.Model):
     Year =models.IntegerField(validators=[MinValueValidator(1)])
     Month = models.IntegerField(validators= [MinValueValidator(1), MaxValueValidator(12)])
     Day = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(31)])
+    Poultry_number=models.IntegerField()
+
     Morning_egg_collection=models.DecimalField(max_digits=10,decimal_places=2,help_text='total number of eggs collected')
     Midday_egg_collection=models.DecimalField(max_digits=10,decimal_places=2,help_text='total number of eggs collected', blank=True)
     Evening_egg_collection=models.DecimalField(max_digits=10,decimal_places=2,help_text='total number of eggs collected',blank=True)
@@ -201,6 +203,7 @@ class Eggs_production(models.Model):
     Morning_feeds=models.DecimalField(max_digits=10,decimal_places=2,help_text='feed consumed in kg')
     Evening_feeds=models.DecimalField(max_digits=10,decimal_places=2,help_text='feed consumed in kg',blank=True)
     Total_feeds=models.DecimalField(max_digits=10,decimal_places=2,default=0,editable=False)
+    Comments=models.TextField(null=True,blank=True)
 
     def save(self,*args, **kwargs):
         morning_egg_collection=float(self.Morning_egg_collection)
