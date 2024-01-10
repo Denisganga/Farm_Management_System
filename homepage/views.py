@@ -571,6 +571,8 @@ def Select_year_month_egg(request):
     if request.method=='POST':
         selected_year=request.POST.get('Year')
         selected_month=request.POST.get('Month')
+
+        return redirect('homepage:egg-productionrecord', selected_year=selected_year, selected_month=selected_month)
         
     return render(request,'homepage/selectingyearandmonth.html' )
 
