@@ -574,3 +574,9 @@ def Select_year_month_egg(request):
         
     return render(request,'homepage/selectingyearandmonth.html' )
 
+
+def Egg_production_record(request,selected_year, selected_momth):
+    egg_production_records=Eggs_production.objects.filter(Year=selected_year,Month=Select_year_month)
+
+    return render(request,'homepage/showeggproduction.html', {'egg_production_records':egg_production_records})
+
