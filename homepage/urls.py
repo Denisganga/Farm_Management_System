@@ -49,6 +49,7 @@ from .views import (
     Update_milk_production_by_month,
 
     Select_year_month_egg,
+    Egg_production_record,
     
 )
 
@@ -148,4 +149,6 @@ urlpatterns = [
     path('update_milkproductionbymonth/<int:selected_year>/<int:selected_month>/<int:Day>/', Update_milk_production_by_month,name='update-milkproductionbymonth'),
 
     path('select_yearandmonth/', Select_year_month_egg, name='select-yearandmonth'),
+
+    path('egg_productionrecord/<int:selected_year>/<int:selected_month>', Egg_production_record, name='egg-productionrecord')
 ]
