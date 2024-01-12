@@ -1,6 +1,6 @@
 # Farm Management System
 
-A Django-based Farm Management System to streamline farm operations and data management.
+A Django-based Farm Management System to streamline farm operations and data management keeping track of farm operations.
 
 ## Table of Contents
 
