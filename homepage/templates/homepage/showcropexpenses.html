@@ -1,0 +1,118 @@
+{%extends 'homepage/base.html' %} {% block content %}
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .update-link,
+    .delete-link {
+      display: inline-block;
+      padding: 5px 10px;
+      text-decoration: none;
+      color: #fff;
+      border-radius: 3px;
+      margin-right: 5px;
+    }
+
+    .update-link {
+      background-color: #3498db;
+    }
+
+    .delete-link {
+      background-color: #e74c3c;
+    }
+
+    .add-button {
+      display: inline-block;
+      padding: 10px;
+      background-color: #4caf50;
+      color: white;
+      text-decoration: none;
+      border-radius: 3px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Crop Expenses Details</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Expense Date</th>
+        <th>Expense Type</th>
+        <th>Expense Description</th>
+        <th>Budge Amount</th>
+        <th>Expense Amount</th>
+        <th>Supplier Name</th>
+        <th>Payment Method</th>
+        <th>Receipt Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for expense in expenses %}
+      <tr>
+        <td>{{ expense.Expense_date }}</td>
+        <td>{{ expense.Expense_type }}</td>
+        <td>{{ expense.Expense_description }}</td>
+        <td>{{ expense.Budget }}</td>
+        <td>{{ expense.Expense_amount }}</td>
+        <td>{{ expense.Supplier }}</td>
+        <td>{{ expense.Payment_method }}</td>
+        <td>{{ expense.Receipt_number }}</td>
+
+        <td>
+          <a
+            href="{%url 'homepage:update-cropexpenses' Cid=crops.Cid Expense_date=expense.Expense_date|date:'Y-m-d' %}"
+            class="update-link"
+            >Update</a
+          >
+          <a
+            href="{%url 'homepage:delete-cropexpenses' Cid=crops.Cid Expense_date=expense.Expense_date|date:'Y-m-d' %}"
+            class="delete-link"
+            >Delete</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a
+    href="{% url 'homepage:add-cropexpenses' Cid=crops.Cid %}"
+    class="add-button"
+    >Add an Expense</a
+  >
+</body>
+{%endblock%}

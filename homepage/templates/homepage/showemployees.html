@@ -1,0 +1,98 @@
+{%extends 'homepage/base.html' %}
+{% block content %}
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+          }
+          
+          /* Heading */
+          h1 {
+            color: #333;
+            text-align: center;
+          }
+          
+          /* Table */
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+          }
+          
+          table th,
+          table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+          }
+          
+          /* Table Head */
+          table thead th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            text-align: left;
+          }
+          
+          /* Table Body */
+          table tbody td {
+            text-align: left;
+          }
+          
+          /* Add Button */
+          .add-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #428bca;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+          }
+          
+          .add-button:hover {
+            background-color: #3071a9;
+          }
+          .delete-link {
+            color: red;
+            text-decoration: none;
+          }
+          
+    </style>
+</head>
+<body>
+    <h1>Employees Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Employees ID</th>
+                <th>Name</th>
+                <th>Country code</th>
+                <th>Phone number</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Performance</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.Eid }}</td>
+                <td>{{ employee.Name }}</td>
+                <td>{{ employee.Country_code }}</td>
+                <td>{{ employee.Phone_number }}</td>
+                <td>{{ employee.Position }}</td>
+                <td>{{ employee.Salary }}</td>
+                <td>{{ employee.Performance }}</td>
+
+                <td><a href="{% url 'homepage:update-employees' Eid=employee.Eid %}" class="update-link">Update</a>
+                  <a href="{% url 'homepage:delete-employees' Eid=employee.Eid %}"class="delete-link">Delete</a> </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'homepage:add-employees' %}" class="add-button">Add</a>
+</body>
+{%endblock%}
