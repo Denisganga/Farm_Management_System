@@ -1,0 +1,84 @@
+{%extends 'homepage/base.html'%}
+{%block content%}
+<head>
+    <title>update Crop Sale</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    </head>
+    <body>
+      <h1>Update Machinery Activity</h1>
+      <form method="post">
+        {% csrf_token %}
+    
+        <label for="id_Activity_date">Activity Date:</label>
+        <input type="date" name="Activity_date" id="id_Activity_date" value="{{machinery_activities.Activity_date }}" required>
+    
+        <label for="id_Activity_type">Activity Type:</label>
+        <input type="text" name="Activity_type" id="id_Activity_type" value="{{ machinery_activities.Activity_type }}" >
+
+        <label for="id_Activity_cost">Activity Cost:</label>
+        <input type="number" name="Activity_cost" id="id_Activity_cost" value="{{ machinery_activities.Activity_cost }}" required>
+
+        <label for="id_Description">Description:</label>
+        <textarea name="Description" id="id_Description" value="{{ machinery_activities.Description }}" required>  </textarea>
+        
+      
+
+
+        <input type="submit" value="Update">
+      </form>
+    </body>
+    {%endblock%}

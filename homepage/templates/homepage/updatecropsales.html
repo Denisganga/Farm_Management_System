@@ -1,0 +1,96 @@
+{%extends 'homepage/base.html'%}
+{%block content%}
+<head>
+    <title>update Crop Sale</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    </head>
+    <body>
+      <h1>Update Crop Sales</h1>
+      <form method="post">
+        {% csrf_token %}
+    
+        <label for="id_Sale_date">Sales Date:</label>
+        <input type="date" name="Sale_date" id="id_Sale_date" value="{{crop_sales.Sale_date }}" required>
+    
+        <label for="id_Quantity_sold">Quantity Sold:</label>
+        <input type="text" name="Quantity_sold" id="id_Quantity_sold" value="{{ crop_sales.Quantity_sold }}" >
+
+        <label for="id_Unit_price">Unit Price:</label>
+        <input type="text" name="Unit_price" id="id_Unit_price" value="{{ crop_sales.Unit_price }}" required>
+
+        <label for="id_Buyer_information">Buyer Information:</label>
+        <textarea name="Buyer_information" id="id_Buyer_information" value="{{ crop_sales.Buyer_information }}" required>  </textarea>
+        
+        <label for="id_Payment_method">Payment Method:</label>
+        <input type="text" name="Payment_method" id="id_Payment_method" value="{{ crop_sales.Payment_method }}" required> 
+
+        <label for="id_Payment_status">Payment Status:</label>
+        <select name="Payment_status" id="id_Payment_status"  value="{{ crop_sales.Payment_status }}">
+            <option value="pending">Pending</option>
+            <option value="received">Received</option>
+        </select>
+        <label for="id_Invoice_number">Invoice Number:</label>
+        <input type="text" name="Invoice_number" id="id_Invoice_number" value="{{ crop_sales.Invoice_number }}" required> 
+
+        <label for="id_Additional_notes">Other Description:</label>
+        <textarea name="Additional_notes" id="id_Additional_notes" value="{{ crop_sales.Additional_notes }}" required>  </textarea> 
+
+
+        <input type="submit" value="Update">
+      </form>
+    </body>
+    {%endblock%}
