@@ -106,8 +106,10 @@
               <td>{{ record.Morning_feeds}}</td>
               <td>{{ record.Evening_feeds}}</td>
               <td>{{ record.Total_feeds}}</td>
+              <td>{{record.Comments}}</td>
 
-                <td>
+
+              <td>
                 <a href="" class="update-link">update</a>
                 <a href=""class="delete-link">Delete</a>
                 </td>
@@ -115,7 +117,7 @@
             {% endfor %}
         </tbody>
     </table>
-    <a href="" class="add-button">Add</a>
+    <a href="{% url 'homepage:add-eggproduction' selected_year=selected_year selected_month=selected_month %}" class="add-button">Add</a>
     
 
 </body>

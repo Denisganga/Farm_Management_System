@@ -580,10 +580,10 @@ def Select_year_month_egg(request):
 def Egg_production_record(request,selected_year, selected_month):
     egg_production_records=Eggs_production.objects.filter(Year=selected_year,Month=selected_month)
 
-    return render(request,'homepage/showeggproduction.html', {'egg_production_records':egg_production_records})
+    return render(request,'homepage/showeggproduction.html', {'egg_production_records':egg_production_records, 'selected_year':selected_year, 'selected_month':selected_month})
 
 def Add_egg_production_by_month(request,selected_year,selected_month):
-    if request.mehod=='POST':
+    if request.method=='POST':
         form=Egg_productionForm(request.POST)
         if form.is_valid():
             production=form.save(commit=False)

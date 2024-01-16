@@ -153,5 +153,5 @@ urlpatterns = [
 
     path('egg_productionrecord/<int:selected_year>/<int:selected_month>', Egg_production_record, name='egg-productionrecord'),
 
-    path('add_eggproductionbymonth/<int:selected_year>/<int:selected_moth>/', Add_egg_production_by_month, name='add-eggproduction')
+    path('add_eggproductionbymonth/<int:selected_year>/<int:selected_month>/', Add_egg_production_by_month, name='add-eggproduction')
 ]
