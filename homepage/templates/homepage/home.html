@@ -348,11 +348,7 @@
         <i class="bx bx-menu" id="btn"></i>
       </div>
       <ul class="nav-list">
-        <li>
-          <i class="bx bx-search"></i>
-          <input type="text" placeholder="Search..." />
-          <span class="tooltip">Search</span>
-        </li>
+
         <li>
           <a href="#">
             <i class="bx bx-grid-alt"></i>
@@ -374,13 +370,7 @@
           </a>
           <span class="tooltip">Crops Report</span>
         </li>
-        <li>
-          <a href="#">
-            <i class="bx bx-pie-chart-alt-2"></i>
-            <span class="links_name">ProfiMetric</span>
-          </a>
-          <span class="tooltip">ProfiMetric</span>
-        </li>
+
         <li>
           <a href="{% url 'homepage:show-livestock' %}">
             <i class="bx bxs-dog" style="color: #ffffff"></i>
@@ -409,19 +399,7 @@
           </a>
           <span class="tooltip">Setting</span>
         </li>
-        <li class="profile">
-          <div class="profile-details">
-            <img
-              src="https://drive.google.com/uc?export=view&id=1ETZYgPpWbbBtpJnhi42_IR3vOwSOpR4z"
-              alt="profileImg"
-            />
-            <div class="name_job">
-              <div class="name">Farm Manager</div>
-              <div class="job">manage your crop operations</div>
-            </div>
-          </div>
-          <i class="bx bx-log-out" id="log_out"></i>
-        </li>
+        
       </ul>
     </div>
     <section class="home-section">
@@ -463,30 +441,29 @@
 
     <!-- Card 1 -->
     <div class="card">
-      <h2>Store Management</h2>
-      <p>Manage your farm store efficiently.</p>
-      <a href="#">Go to Store</a>
+      <h2>Employees Details</h2>
+      <p>Record your emploees details here</p>
+      <a href="{% url 'homepage:show-employees' %}">Go to Details</a>
     </div>
-
     <!-- Card 2 -->
     <div class="card">
-      <h2>Breeding Management</h2>
-      <p>Track and manage your breeding activities.</p>
-      <a href="#">Go to Breeding</a>
+      <h2> Livestock Management</h2>
+      <p>Track and manage your various breeds in your farm.</p>
+      <a href="{% url 'homepage:show-livestock' %}">Go to livestock reports</a>
     </div>
 
     <!-- Card 3 -->
     <div class="card">
-      <h2>Task Scheduling</h2>
-      <p>Schedule and organize farm tasks.</p>
-      <a href="#">Go to Task Scheduling</a>
+      <h2>Crops reports</h2>
+      <p>Monitor every operation and details of your crops.</p>
+      <a href="{% url 'homepage:show-crops' %}">Go to crops reports</a>
     </div>
 
     <!-- Card 4 -->
     <div class="card">
-      <h2>Document Management</h2>
-      <p>Manage important farm documents.</p>
-      <a href="#">Go to Documents</a>
+      <h2>Machinery reports</h2>
+      <p>Manage important details of your farm machineryy and equipments.</p>
+      <a href="{% url 'homepage:show-machinery' %}">Go to the reports </a>
     </div>
 
     <!-- Card 5 -->
