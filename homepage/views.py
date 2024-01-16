@@ -582,3 +582,15 @@ def Egg_production_record(request,selected_year, selected_month):
 
     return render(request,'homepage/showeggproduction.html', {'egg_production_records':egg_production_records})
 
+def Add_egg_production_by_month(request,selected_year,selected_month):
+    if request.mehod=='POST':
+        form=Egg_productionForm(request.POST)
+        if form.is_valid():
+            production=form.save(commit=False)
+            production.Year=selected_year
+            production.Month=selected_month
+            production.save()
+            return redirect('homepage:egg-productionrecord', selected_year=selected_year,selected_month=selected_month)
+    else:
+        form=Egg_productionForm()
+    return render(request, 'homepage/addeggproduction.html', {'form':form,'selected_year':selected_year,'selected_month':selected_month})
