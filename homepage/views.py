@@ -594,3 +594,7 @@ def Add_egg_production_by_month(request,selected_year,selected_month):
     else:
         form=Egg_productionForm()
     return render(request, 'homepage/addeggproduction.html', {'form':form,'selected_year':selected_year,'selected_month':selected_month})
+
+
+def Help(request):
+    return render('request, homepage/help.html')
