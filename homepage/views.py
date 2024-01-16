@@ -597,4 +597,4 @@ def Add_egg_production_by_month(request,selected_year,selected_month):
 
 
 def Help(request):
-    return render('request, homepage/help.html')
+    return render(request, 'homepage/help.html')
