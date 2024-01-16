@@ -480,7 +480,7 @@ def Milk_production_by_month(request, selected_year, selected_month):
     milk_production_records = Milk_production.objects.filter(Year=selected_year, Month=selected_month)
 
     # Prepare data for the bar graph of total consumption vs day
-    days = [record.Day for record in milk_production_records]
+    days = [record.Day  for record in milk_production_records]
     total_consumption = [record.Total_consumption for record in milk_production_records]
 
     # Create a bar graph for Total Consumption vs Day
