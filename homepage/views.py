@@ -595,6 +595,13 @@ def Add_egg_production_by_month(request,selected_year,selected_month):
         form=Egg_productionForm()
     return render(request, 'homepage/addeggproduction.html', {'form':form,'selected_year':selected_year,'selected_month':selected_month})
 
+def Delete_egg_production_by_month(request,selected_year,selected_month,Day):
+    egg_production_records=get_object_or_404(Eggs_production,Day)
+    if request.method=='POST':
+        egg_production_records.delete()
+        return redirect('homepage:egg-productionrecord', selected_year=selected_year,selected_month=selected_month)
+    return render(request, 'homepage/deleteeggproduction.html', {'egg_production_records':egg_production_records,'selected_year':selected_year,'selected_month':selected_month})
+
 
 def Help(request):
     return render(request, 'homepage/help.html')
