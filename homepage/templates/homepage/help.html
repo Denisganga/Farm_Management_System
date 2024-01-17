@@ -1,32 +1,162 @@
 {%extends 'homepage/base.html'%}
 {%block content%}
+<head>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.help-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, p {
+    color: #333;
+}
+
+.feature {
+    margin-bottom: 40px;
+}
+
+.sub-feature {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+    </style>
+</head>
 <body>
     <div class="help-container">
-        <h1>Employee Details Help</h1>
+        <section class="feature">
+            <h1>Crop Management 🌾</h1>
+            <p>The heart of the Farm Management System lies in its robust Crop Management section. Seamlessly monitor all operations related to your crops with a user-friendly interface. This includes tracking the planting day, the associated field, and adding essential details such as crop operations, variety, crop name, sales, and expenses, each meticulously timestamped for a comprehensive overview.</p>
 
-        <p>
-            In the Employee Details section, you can manage information related to the employees working on your farm.
-            This section includes details such as Employee ID, Name, Country Code, Phone Number, Position, Salary, and Performance.
-        </p>
+            <article class="sub-feature">
+                <h2>Crop Operations</h2>
+                <ul>
+                    <li>Operation Date: Capture the date of each operation.</li>
+                    <li>Operation Name: Specify the type of operation, such as planting, harvesting, or irrigation.</li>
+                    <li>Additional Notes: Add any relevant notes or details for future reference.</li>
+                </ul>
+            </article>
 
-        <h2>Fields Explanation:</h2>
-        <ul>
-            <li><strong>Employee ID:</strong> Unique identifier for each employee.</li>
-            <li><strong>Name:</strong> Full name of the employee.</li>
-            <li><strong>Country Code:</strong> Country code for the employee's phone number.</li>
-            <li><strong>Phone Number:</strong> Contact number for the employee.</li>
-            <li><strong>Position:</strong> Job role or position of the employee.</li>
-            <li><strong>Salary:</strong> Compensation or wage for the employee.</li>
-            <li><strong>Performance:</strong> Evaluation of the employee's performance.</li>
-        </ul>
+            <article class="sub-feature">
+                <h2>Expenses Details</h2>
+                <ul>
+                    <li>Expense Date: Document the date of each expense.</li>
+                    <li>Expense Type: Categorize expenses based on their types.</li>
+                    <li>Expense Description: Provide a brief description of the expense.</li>
+                    <li>Budget Amount: Set a budget amount for better financial planning.</li>
+                    <li>Expense Amount: Record the actual expense amount.</li>
+                    <li>Supplier Name: Identify the supplier associated with the expense.</li>
+                    <li>Payment Method: Specify the payment method used.</li>
+                    <li>Receipt Number: Log the receipt number for easy reference.</li>
+                </ul>
+            </article>
 
-        <h2>Actions:</h2>
-        <p>
-            The "Actions" column provides options to interact with employee records:
-            <ul>
-                <li><strong>Add:</strong> Click this button to add a new employee to the system.</li>
-                <!-- You can add more actions as needed -->
-            </ul>
-        </p>
-        </body>
+            <article class="sub-feature">
+                <h2>Sales Details</h2>
+                <ul>
+                    <li>Sales Date: Record the date of each sale.</li>
+                    <li>Quantity Sold: Specify the quantity of crops sold.</li>
+                    <li>Unit Price: Set the unit price for accurate pricing.</li>
+                    <li>Total Price: Automatically calculated based on quantity and unit price.</li>
+                    <li>Buyers Information: Document details about the buyers.</li>
+                    <li>Payment Method: Specify the payment method used by the buyer.</li>
+                    <li>Payment Status: Track the payment status (paid, pending, etc.).</li>
+                    <li>Invoice Number: Assign a unique invoice number to each sale.</li>
+                    <li>Additional Information: Include any supplementary information related to the sale.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="feature">
+            <h1>Employees 🌾👩‍🌾👨‍🌾</h1>
+            <p>The Employees section acts as your farm's personnel hub, maintaining comprehensive records of the hardworking individuals contributing to your agricultural success. Keep track of essential employee details, including:</p>
+
+            <article class="sub-feature">
+                <h2>Employee Details</h2>
+                <table>
+                    <tr>
+                        <th>Names</th>
+                        <th>Phone Numbers</th>
+                        <th>Position</th>
+                        <th>Salary</th>
+                        <th>Performance</th>
+                    </tr>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>123-456-7890</td>
+                        <td>Farm Worker</td>
+                        <td>$50,000</td>
+                        <td>Excellent</td>
+                    </tr>
+                    <!-- Add more employee details as needed -->
+                </table>
+            </article>
+        </section>
+
+        <section class="feature">
+            <h1>Livestock 🐄🐖🐑</h1>
+            <p>Manage your livestock efficiently with the Livestock section, equipped with features tailored to meet the diverse needs of your farm's animals. Track crucial information about each animal, including:</p>
+
+            <article class="sub-feature">
+                <h2>Production Features</h2>
+                <ul>
+                    <li>Production Date: Capture the date of each production cycle.</li>
+                    <li>Feed Consumed: Track the feed consumption patterns, ensuring a well-balanced diet.</li>
+                    <li>Production Amount: Document the quantity or output of each production cycle.</li>
+                    <li>Comments: Add additional insights or observations related to the production.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="feature">
+            <h1>Machinery 🚜🛠️</h1>
+            <p>Efficiently manage your farm's machinery with the Machinery section, designed to keep detailed records of essential equipment. Each piece of machinery is meticulously documented with the following information:</p>
+
+            <article class="sub-feature">
+                <h2>Machinery Details</h2>
+                <ul>
+                    <li>Equipment Name: Easily identify and categorize your farm machinery.</li>
+                    <li>Purchase Price: Record the cost associated with acquiring each piece of equipment.</li>
+                    <li>Purchase Date: Capture the date when the machinery was purchased.</li>
+                    <li>Operations: Track the usage and operational history of each piece, ensuring optimal efficiency.</li>
+                    <li>Maintenance Activities: Document essential maintenance activities, safeguarding the longevity and performance of your machinery.</li>
+                </ul>
+            </article>
+        </section>
+    </div>
+</body>
 {%endblock%}
