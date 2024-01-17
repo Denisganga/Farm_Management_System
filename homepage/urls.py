@@ -51,6 +51,7 @@ from .views import (
     Select_year_month_egg,
     Egg_production_record,
     Add_egg_production_by_month,
+    Delete_egg_production_by_month,
 
     Help
     
@@ -156,6 +157,8 @@ urlpatterns = [
     path('egg_productionrecord/<int:selected_year>/<int:selected_month>', Egg_production_record, name='egg-productionrecord'),
 
     path('add_eggproductionbymonth/<int:selected_year>/<int:selected_month>/', Add_egg_production_by_month, name='add-eggproduction'),
+
+    path('delete_eggproductionbymonth/<int:selected_year>/<int:selected_month>/<int:Day>/', Delete_egg_production_by_month, name='delete-eggproductionbymonth'),
 
     path('help/', Help, name='help')
 ]
