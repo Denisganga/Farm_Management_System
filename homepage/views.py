@@ -602,7 +602,7 @@ def Delete_egg_production_by_month(request,selected_year,selected_month,Day):
         return redirect('homepage:egg-productionrecord', selected_year=selected_year,selected_month=selected_month)
     return render(request, 'homepage/deleteeggproduction.html', {'egg_production_records':egg_production_records,'selected_year':selected_year,'selected_month':selected_month})
 
-def Udate_egg_production_by_month(request,selected_year,selected_month,Day):
+def Update_egg_production_by_month(request,selected_year,selected_month,Day):
     egg_production_record=get_object_or_404(Eggs_production,Day=Day,Year=selected_year,Month=selected_month)
     form=Milk_productionForm(request.POST,instance=egg_production_record)
 
