@@ -596,12 +596,23 @@ def Add_egg_production_by_month(request,selected_year,selected_month):
     return render(request, 'homepage/addeggproduction.html', {'form':form,'selected_year':selected_year,'selected_month':selected_month})
 
 def Delete_egg_production_by_month(request,selected_year,selected_month,Day):
-    egg_production_records=get_object_or_404(Eggs_production,Day)
+    egg_production_records=get_object_or_404(Eggs_production,Day=Day)
     if request.method=='POST':
         egg_production_records.delete()
         return redirect('homepage:egg-productionrecord', selected_year=selected_year,selected_month=selected_month)
     return render(request, 'homepage/deleteeggproduction.html', {'egg_production_records':egg_production_records,'selected_year':selected_year,'selected_month':selected_month})
 
+def Udate_egg_production_by_month(request,selected_year,selected_month,Day):
+    egg_production_record=get_object_or_404(Eggs_production,Day=Day,Year=selected_year,Month=selected_month)
+    form=Milk_productionForm(request.POST,instance=egg_production_record)
+
+    if form.is_valid():
+        form.save()
+        return redirect('homepage:egg-productionrecord',selected_year=selected_year,selected_month=selected_month)
+    else:
+        print(form.errors)
+
+    return render(request,'homepage/updateeggproduction.html',{'egg_production_record':egg_production_record,'selected_year':selected_year,'selected_month':selected_month})
 
 def Help(request):
     return render(request, 'homepage/help.html')
