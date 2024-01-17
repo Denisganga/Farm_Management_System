@@ -161,7 +161,7 @@ urlpatterns = [
 
     path('delete_eggproductionbymonth/<int:selected_year>/<int:selected_month>/<int:Day>/', Delete_egg_production_by_month, name='delete-eggproductionbymonth'),
 
-    path('updatw_eggproductionbymonth/<int:selected_year>/<int:selected:month>/<int:Day>/',Update_egg_production_by_month, name='update-eggproduction')
+    path('update_eggproductionbymonth/<int:selected_year>/<int:selected_month>/<int:Day>/',Update_egg_production_by_month, name='update-eggproduction'),
 
     path('help/', Help, name='help')
 ]

@@ -1,0 +1,102 @@
+{%extends 'homepage/base.html'%}
+{%block content%}
+<head>
+    <title>update Egg Production</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    </head>
+    <body>
+      <h1>Update Egg production for {{selected_month}} {{selected_year}} </h1>
+      <form method="post">
+        {% csrf_token %}
+    
+        <label for="id_Year">Year:</label>
+        <input type="number" name="Year" id="id_Year" placeholder= {{selected_year}}  value="{{milk_production_records.Year}}" required>
+
+        <label for="id_Month">Month:</label>
+        <input type="number" name="Month" id="id_Month" placeholder= {{selected_month}} value="{{milk_production_records.Month}}" required>
+
+
+        <label for="id_Day">Day:</label>
+        <input type="number" name="Day" id="id_Day" value="{{egg_production_records.Day}}" required>
+    
+        <label for="id_Poultry_number">Poultry Number:</label>
+        <input type="number" name="Poultry_number" id="id_Poultry_number" value="{{ egg_production_record.Poultry_number }}" required>
+
+        <label for="id_Morning_egg_collection">Morning Number of Eggs collected:</label>
+        <input type="number" name="Morning_egg_collection" id="id_Morning_egg_collection" value="{{ egg_production_record.Morning_egg_collection}}" required>
+
+        <label for="id_Midday_egg_collection">Midday Number of eggs collected:</label>
+        <input type="number" name="Midday_egg_collection" id="id_Midday_egg_collection" value="{{egg_production_record.Midday_egg_collection }}" >
+
+        <label for="id_Evening_egg_collection">Evening  Number of eggs collected:</label>
+        <input type="number" name="Evening_egg_collection" id="id_Evening_egg_collection" value="{{egg_production_record.id_Evening_egg_collection  }}" >
+
+        <label for="id_Morning_feeds">Morning Feed Consumption:</label>
+        <input type="number" name="Morning_feeds" id="id_Morning_feeds" value="{{egg_production_record.Morning_feeds  }}" required >
+
+        <label for="id_Evening_feeds">Evening Feed Consumption:</label>
+        <input type="number" name="Evening_feeds" id="id_Evening_feeds" value="{{egg_production_record.Evening_feeds  }}" >
+
+        <label for="id_Comments">Comment:</label>
+        <textarea name="Comments" id="id_Comments" value="{{egg_production_record.Comments  }}" ></textarea>
+
+
+
+        <input type="submit" value="Update">
+      </form>
+    </body>
+    {%endblock%}
