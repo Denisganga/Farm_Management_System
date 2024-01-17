@@ -604,7 +604,7 @@ def Delete_egg_production_by_month(request,selected_year,selected_month,Day):
 
 def Update_egg_production_by_month(request,selected_year,selected_month,Day):
     egg_production_record=get_object_or_404(Eggs_production,Day=Day,Year=selected_year,Month=selected_month)
-    form=Milk_productionForm(request.POST,instance=egg_production_record)
+    form=Egg_productionForm(request.POST,instance=egg_production_record)
 
     if form.is_valid():
         form.save()
