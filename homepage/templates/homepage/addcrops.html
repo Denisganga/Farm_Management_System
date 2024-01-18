@@ -14,7 +14,7 @@
             padding: 20px;
         }
         
-        h2 {
+        h1 {
             text-align: center;
             color: #333;
         }
@@ -64,7 +64,7 @@
     </style>
 </head>
 <body>
-    <h2>Add Crops</h2>
+    <h1>Add Crops</h1>
     <form method="POST" action="{% url 'homepage:add-crops' %}">
         {% csrf_token %}
         {{ form.as_p }}

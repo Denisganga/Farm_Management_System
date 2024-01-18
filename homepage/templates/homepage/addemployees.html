@@ -10,7 +10,7 @@
             padding: 20px;
         }
         
-        h2 {
+        h1{
             text-align: center;
             color: #333;
         }
@@ -63,7 +63,7 @@
     <body>
         
         <form method="POST" action={%url 'homepage:add-employees'%}>
-            <h2>Add Employee</h2>
+            <h1>Add Employee</h1>
             {%csrf_token%}
             {{form.as_p}}
             <input type="submit" value="add">
