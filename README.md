@@ -1,6 +1,11 @@
 # Farm Management System
 
 A Django-based Farm Management System to streamline farm operations and data management keeping track of farm operations.
+Agriculture is the backbone of every growing economy.
+Not just the economy, but  i can just name it as a breath!!
+Yeah!! you cant live without breathing!!
+
+sure you cant live without agriculture!! 
 
 ## Table of Contents
 
