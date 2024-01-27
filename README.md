@@ -1,6 +1,11 @@
 # Farm Management System
 
 A Django-based Farm Management System to streamline farm operations and data management keeping track of farm operations.
+Agriculture is the backbone of every growing economy.
+Not just the economy, but  i can just name it as a breath!!
+Yeah!! you cant live without breathing!!
+
+sure you cant live without agriculture!! 
 
 ## Table of Contents
 
@@ -98,6 +103,24 @@ Efficiently manage your farm's machinery with the Machinery section, designed to
 - **Maintenance Activities:** Document essential maintenance activities, safeguarding the longevity and performance of your machinery.
 
 With the Machinery feature, stay in control of your farming infrastructure, optimize equipment utilization, and ensure that your machinery operates at peak efficiency throughout its lifecycle.
+
+
+
+
+## Egg production and Milk production 🐔🐓🐄
+Your production!!
+
+The main aim of rearing animals is the production.
+
+Using this system you as a farmer things have been simplified for you.
+You can keep track of your milk and egg production records. Some of the fields that are contained in the records are:
+
+- **Production Year, month and Day:**   You need to keep the record of the production aligning with the respective dates for easier analysing. This section also contains a graphical interface for visualisation, You can seethe comparison between feeds consumed and the day, production vs day in the milk production section.
+
+- **Number of livestock involved:** You will record the number of animals involved in the production for a better analysing 
+
+
+
 
 
 
