@@ -61,7 +61,7 @@ from .views import (
 app_name = "homepage"
 
 urlpatterns = [
-    path("", Mainpage, name="mainpage"),
+    path("mainpage/", Mainpage, name="mainpage"),
 
     path("show_employees/", Show_employees, name="show-employees"),
 
