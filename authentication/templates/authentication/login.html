@@ -63,7 +63,7 @@
 <body>  
  <div class=container>
   <div class="thehead">
-  <h3>LOGIN PAGE</h3> 
+  <h1>LOGIN PAGE</h1> 
   <img src="{% static 'images/logo.png' %}" alt="Logo" width="150" height="90">
   </div>
   <form action="" method=POST>
@@ -79,7 +79,7 @@
 
     
     <input type="submit" value="Login">
-    <p>forgot password? <a href="#">reset password</a></p>
+    <p>dont have an account?<a href="{% url 'authentication:register' %}">Register</a></p>
   </form>
  </div>
 </body>  
