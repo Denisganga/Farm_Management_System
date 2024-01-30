@@ -406,7 +406,7 @@
       <div class="text">
         <div class="welcome-message">
           <h1 id="greeting">
-            Good Evening Farmer, lets monitor your activities!
+            Good Evening {{User.username}}, lets monitor your activities!
           </h1>
         </div>
         <script>
@@ -418,18 +418,18 @@
 
           if (hour >= 5 && hour < 12) {
             greeting.innerHTML =
-              "Good Morning Farmer, lets monitor your activities!";
+              "Good Morning {{User.username}} lets monitor your activities!";
           } else if (hour >= 12 && hour < 18) {
             greeting.innerHTML =
-              "Good Afternoon Farmer, lets monitor your activities!";
+              "Good Afternoon {{User.username}} lets monitor your activities!";
           } else {
             greeting.innerHTML =
-              "Good Evening Farmer, lets monitor your activities!";
+              "Good Evening {{User.username}}, lets monitor your activities!";
           }
         </script>
 
         <p>
-          Welcome to your Dashboard. Here, you can analyze and monitor your
+          Welcome {{User.user}} to your Dashboard. Here, you can analyze and monitor your
           various activities in your farm
         </p>
       </div>
