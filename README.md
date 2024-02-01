@@ -190,10 +190,7 @@ python manage.py createsuperuser
 ```
 
   ## 9) Access the Application:
-    Open your web browser and go to 
-    ```bash
-    http://localhost:8000/ 
-    ``` 
+   Open your web browser and go to `http://localhost:8000/` 
   to access the Farm Management System.
 
 # Usage
