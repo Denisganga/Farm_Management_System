@@ -228,7 +228,7 @@ We welcome contributions to enhance and improve the Farm Management System. To c
 For more details, check the Contribution Guidelines.
 # License
 
-This project is licensed under the MIT_license.
+This project is licensed under the [MIT_license](MIT_license).
 # Contact
 
 For any inquiries or assistance, feel free to contact me at denisnganga16@gmail.com. We appreciate your feedback and suggestions!
