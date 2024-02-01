@@ -228,7 +228,7 @@ For more details, check the Contribution Guidelines.
 This project is licensed under the [MIT_license](MIT_license).
 # Contact
 
-For any inquiries or assistance, feel free to contact me at denisnganga16@gmail.com. We appreciate your feedback and suggestions!
+For any inquiries or assistance, feel free to contact me at denisnganga16@gmail.com. I appreciate your feedback and suggestions!
 
 Thank you for choosing the Farm Management System. Happy farming!
 
