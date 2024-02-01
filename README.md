@@ -117,7 +117,123 @@ You can keep track of your milk and egg production records. Some of the fields t
 
 - **Production Year, month and Day:**   You need to keep the record of the production aligning with the respective dates for easier analysing. This section also contains a graphical interface for visualisation, You can seethe comparison between feeds consumed and the day, production vs day in the milk production section.
 
-- **Number of livestock involved:** You will record the number of animals involved in the production for a better analysing 
+- **Number of livestock involved:** You will record the number of animals involved in the production for a better analysingtallation
+
+
+# Installation
+
+Follow these steps to set up the Farm Management System on your local machine:
+
+## 1) Clone the Repository:
+
+```bash
+
+git clone https://github.com/denisganga/Farm_Management_System.git
+```
+
+## 2) Navigate to the Project Directory:
+
+```bash
+
+cd farm-management-system
+```
+
+## 3) Create Virtual Environment:
+
+```bash
+
+python -m venv venv
+```
+
+## 4) Activate Virtual Environment:
+
+   For Windows:
+
+```bash
+
+venv\Scripts\activate
+```
+
+For MacOS/Linux:
+
+```bash
+
+    source venv/bin/activate
+```
+
+## 5) Install Dependencies:
+
+```bash
+
+pip install -r requirements.txt
+```
+
+## 6) Run Migrations:
+
+```bash
+
+python manage.py migrate
+```
+
+## 7) Create Superuser:
+
+```bash
+
+python manage.py createsuperuser
+```
+
+## 8) Run the Development Server:
+
+```bash
+
+    python manage.py runserver
+```
+
+  ## 9) Access the Application:
+    Open your web browser and go to 
+    ```bash
+    http://localhost:8000/ 
+    ``` 
+  to access the Farm Management System.
+
+# Usage
+
+  Login:
+        Access the admin dashboard by going to `http://localhost:8000/admin/`.
+        Log in using the superuser credentials created during the installation.
+
+  Explore Features:
+        Navigate through the Crop Management, Employees, Livestock, Machinery, Egg Production, and Milk Production sections to manage your farm operations.
+
+  Record Data:
+        Add crop operations, expenses, sales, employee details, livestock information, machinery records, egg production, and milk production data using the user-friendly forms provided.
+
+  Visualize Data:
+        Utilize the graphical interfaces in the  Milk Production sections to analyze and visualize production trends.
+
+# Configuration
+
+The Farm Management System can be configured based on specific farm requirements. Adjust settings, customize forms, and modify templates to tailor the system to your farm's unique needs.
+
+# Contributing
+
+We welcome contributions to enhance and improve the Farm Management System. To contribute, follow these steps:
+
+  1) Fork the repository.
+  2) Create a new branch for your feature or bug fix.
+  3) Make your changes and commit them with descriptive commit messages.
+  4) Push your changes to your fork.
+  5) Submit a pull request, detailing the changes you made.
+
+For more details, check the Contribution Guidelines.
+# License
+
+This project is licensed under the MIT_license.
+# Contact
+
+For any inquiries or assistance, feel free to contact me at denisnganga16@gmail.com. We appreciate your feedback and suggestions!
+
+Thank you for choosing the Farm Management System. Happy farming!
 
 
 
