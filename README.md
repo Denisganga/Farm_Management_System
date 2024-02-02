@@ -5,7 +5,30 @@ Agriculture is the backbone of every growing economy.
 Not just the economy, but  i can just name it as a breath!!
 Yeah!! you cant live without breathing!!
 
-sure you cant live without agriculture!! 
+sure you cant live without agriculture!! The following is a sample screenshots of the system
+
+
+![Example Image](1.png)
+
+
+![Example Image](2.png)
+
+![Example Image](3.png)
+
+
+![Example Image](4.png)
+
+![Example Image](5.png)
+
+
+![Example Image](6.png)
+
+![Example Image](7.png)
+
+
+![Example Image](8.png)
+
+
 
 ## Table of Contents
 
