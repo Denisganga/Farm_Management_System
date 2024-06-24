@@ -25,7 +25,8 @@ SECRET_KEY = "django-insecure-dv7l783ph!d@mp=4a$b2#u84%afkd8q)#jj+n-y14!*6g=idba
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://farm-management-system-47wm.onrender.com', 'localhost']
+
 
 
 # Application definition
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = "FarmManagementSystem.urls"
